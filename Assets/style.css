@@ -1,1 +1,15 @@
-teste 
+*{
+    margin: 0px;
+}
+
+.divfoda {
+    background-color: yellowgreen;
+    position: fixed;
+    width: 500px;
+    height: 500px;
+}
+
+.bntFoda{
+  width: 500px;
+  height: 500px;
+}
