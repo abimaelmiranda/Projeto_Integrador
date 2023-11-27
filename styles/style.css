@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;700&display=swap');
+
+:root{
+
+    --cor0: white;
+    --cor1:rgb(214, 148, 25);
+    --cor2: orange;
+    --cor3: yellow;
+    --cor4: orangered;
+    --cor5: blue;
+
+    --fonte-titulo1: 'League Spartan', sans-serif;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html body{
+    background-image: url("../images/fundo-do-body.jpg");
+    background-color: var(--cor1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+
+}
+
+header{
+    position: relative;
+    /*
+    position: fixed;
+    top: 0;
+    width: 100%;
+    */
+    height: 13vh;
+    background-color: var(--cor2);
+    z-index: 999;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.493);
+
+}
+
+.container-cabecalho{
+    position: relative;
+    display: block;
+    min-width: 93vw;
+    max-width: 98vw;
+    height: 10vh;
+    padding: 1vh;
+}
+
+#logo{
+    display: inline-block;
+    position: absolute;
+    width: auto;
+    height: 10vh;
+}
+
+header  h1 {
+    font-family: var(--fonte-titulo1);
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left: 12vh;
+}
+
+
+#dropdown{
+    position: absolute;
+    display: inline-block;
+    left: 91.5%;
+}
+
+#menu-navegacao{
+    font-size: 2vh;
+    border: none;
+    cursor: pointer;
+    min-height: 10vh;
+    min-width: 5vw;
+    background-color: var(--cor3);
+    padding: 5px;
+    margin-left: 3vw;
+}
+
+#dropdown-filho{
+    display: none;
+    background-color: var(--cor4);
+    min-width: 150px;
+}
+
+#dropdown-filho a{
+    display: block;
+    text-decoration: none;
+}
+
+#dropdown:hover #dropdown-filho{
+    display: block;
+}
+
+
+main{
+    border: 1px solid black ;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 5px;
+    background-color: white;
+    min-width: 300px;
+    max-width: 800px;
+    height: 1000px;
+}
+
+footer{
+    margin-top: 5px;
+    padding-top: 5px;
+    min-height: 20px;
+    background-color: var(--cor2);
+    text-align: center;
+    font-family: var(--fonte-titulo1);
+}
