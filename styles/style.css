@@ -4,11 +4,11 @@
 :root{
 
     --cor0: white;
-    --cor1:rgb(214, 148, 25);
-    --cor2: orange;
-    --cor3: yellow;
-    --cor4: orangered;
-    --cor5: blue;
+    --cor1: #EB8550;
+    --cor2: #EBB650;
+    --cor3: #EA9F50;
+    --cor4: #EB6A50;
+    --cor5: #EBC850;
 
     --fonte-titulo1: 'League Spartan', sans-serif;
 }
@@ -40,7 +40,6 @@ header{
     background-color: var(--cor2);
     z-index: 999;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.493);
-
 }
 
 .container-cabecalho{
@@ -61,6 +60,7 @@ header{
 
 header  h1 {
     font-family: var(--fonte-titulo1);
+    color: var(--cor4);
     display: inline-block;
     position: absolute;
     top: 40%;
@@ -77,17 +77,19 @@ header  h1 {
 #menu-navegacao{
     font-size: 2vh;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     min-height: 10vh;
     min-width: 5vw;
-    background-color: var(--cor3);
+    background-color:var(--cor1);
     padding: 5px;
     margin-left: 3vw;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.466);
 }
 
 #dropdown-filho{
     display: none;
-    background-color: var(--cor4);
+    background-color: var(--cor1);
     min-width: 150px;
 }
 
@@ -98,6 +100,7 @@ header  h1 {
 
 #dropdown:hover #dropdown-filho{
     display: block;
+    
 }
 
 
@@ -106,9 +109,10 @@ main{
     border-radius: 10px;
     margin: auto;
     margin-top: 5px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.651);
+    backdrop-filter: blur(5px);
     min-width: 300px;
-    max-width: 800px;
+    max-width: 1000px;
     height: 1000px;
 }
 
