@@ -95,6 +95,12 @@ html, body{
     height: 50px;
     width: 50px;
     border-radius: 25px; 
+    box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.726);
+}
+
+.voltar-button:hover{
+    transform: translate(+2%, +2%);
+    
 }
 
 .login-button{
