@@ -10,7 +10,7 @@
     --cor4: #EB6A50;
     --cor5: #EBC850;
 
-    --fonte-titulo1: 'League Spartan', sans-serif;
+    --fonte-padrao: 'League Spartan', sans-serif;
 }
 
 
@@ -21,7 +21,7 @@
 
 
 html, body{
-    font-family: var(--fonte-titulo1);
+    font-family: var(--fonte-padrao);
     background-image: url("../images/fundo-do-body.jpg");
     background-color: var(--cor1);
     background-repeat: no-repeat;
@@ -57,6 +57,9 @@ html, body{
     padding-top: 30px;
     text-align: center;
     font-size: 3em;
+    text-shadow: 3px 1px 8px rgba(0, 0, 0, 0.63);
+    color: var(--cor4);
+    
 }
 
 .user-input-field{
@@ -68,6 +71,9 @@ html, body{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid white;
+    text-indent: 10px;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
 }
 .user-input-field::placeholder{
     color: black;
@@ -82,6 +88,9 @@ html, body{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid white;
+    text-indent: 10px;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
 }
 
 .passwd-input-field::placeholder{
@@ -110,7 +119,7 @@ html, body{
     height: 50px;
     width: 75px;
     border: 1px solid rgba(0, 0, 0, 0.329);
-    font-family: var(--fonte-titulo1);
+    font-family: var(--fonte-padrao);
     font-size: 1.2em;
     color: black;
     background-color: #eb6a50cb;

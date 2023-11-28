@@ -3,36 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css" media="all and (max-width:699px)">
+    <link rel="stylesheet" href="styles/style-screen.css" media="screen and (min-width:700px)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="scripts/script.js"></script>
     <title>Home - Nossa Cozinha</title>
-
 </head>
-<body>
-    <header>
-        <div class="container-cabecalho">
-            <img id="logo" src="images/logo1.png" alt="logo-nossa-cozinha">
-            <h1 >Nossa Cozinha</h1>
-            <a class="btnLogin" href="paginas/login.html">Login</a>
-            <div id="dropdown">
-                <button id="menu-navegacao">Menu</button>
-                <div id="dropdown-filho">
-                    <a href="index.html">Home</a>
-                    <a href="#">Receitas</a>
-                    <a href="#" target="_blank">Contato</a>
+<body onresize="sizeChange()">
+    <header id="cabecalho">
+            <!--<img id="logo" src="images/logo1.png" alt="logo-nossa-cozinha">-->
+            <h1>Nossa Cozinha</h1>
+            <span id="menu-icon" class="material-symbols-outlined" onclick="clicMenu()">menu</span>
+        <nav id="menu-itens">
+            <ul>
+                <div class="mobile-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
                 </div>
-            </div>
-        </div> 
-        
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Receitas</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a class="btnLogin" href="paginas/login.html">Login</a></li>
+            </ul>
+        </nav >
     </header>
     <main>
-        <h1>QUEM SOMOS?</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, rem nihil voluptatem, provident et iusto eum repudiandae, neque fuga veniam molestiae culpa quae quis nostrum exercitationem minima error repellendus deserunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint culpa quasi facere dolorum est vero officia inventore enim, beatae ab quaerat modi quis. Dolor, reiciendis doloribus odio laboriosam natus illo. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, beatae nisi voluptatibus dolore vero quam unde a dolores obcaecati blanditiis ea asperiores aut ut sapiente, corrupti consectetur odit fuga officia?</p>
+        <section id="secao-principal" class="conteudo-box">
+            <h1>O que vamos cozinhar hoje</h1>
+            <input type="search" name="pesquisa" id="pesquisa" placeholder="Ex: Bolo de rolo...">
+        </section>
+        <section class="conteudo-box">
+            <h1>Bolo de Rolo</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero animi consequuntur dolor quam tempora sit blanditiis inventore atque, neque eaque laboriosam consectetur reprehenderit obcaecati, perferendis accusamus aspernatur praesentium unde ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam pariatur eligendi maxime eum, veniam ullam, delectus nesciunt modi exercitationem sint. Quos facere accusamus fugit amet, nemo quod facilis cum.</p>
+        </section>
+        <section class="conteudo-box">
 
+        </section>
+        <section class="conteudo-box">
+
+        </section>
+        <section class="conteudo-box">
+
+        </section>
+        <section class="conteudo-box">
+
+        </section>
+        <section class="conteudo-box">
+
+        </section>
+        <section class="conteudo-box">
+
+        </section>
+        <section class="conteudo-box">
+
+        </section>
+        <a href="#cabecalho"><span id="ancora-top"></span></a>
+    
     </main>
+    
+    <script>
+        
+    </script>
     <footer>
         <p>Nossa cozinha, 2023</p>
     </footer>
-    
 </body>
-</html>
