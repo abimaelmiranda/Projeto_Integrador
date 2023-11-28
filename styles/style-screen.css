@@ -32,55 +32,110 @@ html, body{
 }
 
 header{
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--cor0);
     width: 100vw;
-    min-height: 10vh;
-    max-height: 15vh;
-   
+    height: 12vh;
 }
 
-
 header h1 {
-    position: absolute;
-    display: block;
-    left: 50%;
-    transform: translate(-50%, -1%);
-    color: var(--cor4);
+    order: 2;
     text-align: center;
-    padding: 24.9px
-
+    font-size: 2.5em;
 }
 
 #menu-icon{
-    position: absolute;
     background-color: var(--cor4);
-    display: inline-block;
-    top: 0%;
-    left: 0.02%;
-    padding: 12.5px;
+    width: 50px;
+    height: 50px;
     font-size: 3em;
     text-align: center;
     color: var(--cor2);
-    width: 4vw;
-    height: 7.4vh;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+nav{
+    order: 3;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#secao-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px auto;
+    background-color: rgba(255, 255, 255, 0.589);
+    height: 20vh;
+    max-width: 900px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+}
+
+#secao-principal:hover{
+    border: 1px solid lightgray;
+    transform: translate(-0.5%, -0.5%);
+    transition: 100ms;
 
 }
 
+#secao-principal input{
+    order: 1;
+    height: 35px;
+    width: 280px;
+    border: none;
+    border-radius: 5px;
+    text-indent: 1em;
+}
 
 
 #secao-principal > h1{
-    padding-top: 30px;
-    text-align: center;
     color: var(--cor4);
     text-shadow: 1px 1px 1px black;
 }
 
+#container-pesquisa{
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 320px;
+}
+
+#botao-pesquisa{
+    background-color: var(--cor4);
+    border-radius: 5px;
+    padding: 10px;
+    height: 45px;
+    width: 60px;
+}
+
+#botao-pesquisa:hover{
+    background-color: var(--cor4);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    height: 45px;
+    width: 60px;
+}
+
 .conteudo-box{
-    margin: 7px auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 5px auto;
     background-color: rgba(255, 255, 255, 0.589);
     height: 20vh;
-    width: 70vw;
+    max-width: 900px;
     padding: 20px;
     backdrop-filter: blur(5px);
     border-radius: 5px;
@@ -88,25 +143,22 @@ header h1 {
 
 .conteudo-box:hover{
     cursor: pointer;
+    border: 1px solid lightgray;
     transform: translate(-0.5%, -0.5%);
     transition: 100ms;
+}
 
+.conteudo-box > h1 {
+    width: 130px;
+    height: 1px;
 }
 
 .conteudo-box > p{
     text-indent: 1.5em;
 }
 
-.conteudo-box input{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-75%, -50%);
-    height: 35px;
-    width: 280px;
-    display: block;
-    margin: auto;
-    border: none;
-    border-radius: 5px;
-    text-indent: 1em;
+
+footer{
+    display: flex;
+    justify-content: center;
 }

@@ -18,11 +18,6 @@
             <span id="menu-icon" class="material-symbols-outlined" onclick="clicMenu()">menu</span>
         <nav id="menu-itens">
             <ul>
-                <div class="mobile-menu">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Receitas</a></li>
                 <li><a href="#">Contato</a></li>
@@ -31,9 +26,12 @@
         </nav >
     </header>
     <main>
-        <section id="secao-principal" class="conteudo-box">
+        <section id="secao-principal">
             <h1>O que vamos cozinhar hoje</h1>
-            <input type="search" name="pesquisa" id="pesquisa" placeholder="Ex: Bolo de rolo...">
+                <div id="container-pesquisa">
+                    <input type="search" name="pesquisa" id="pesquisa" placeholder="Ex: Bolo de rolo...">
+                    <button type="submit" id="botao-pesquisa"></button>
+                </div>
         </section>
         <section class="conteudo-box">
             <h1>Bolo de Rolo</h1>
