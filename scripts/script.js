@@ -1,6 +1,6 @@
 function sizeChange(){
     var itens = document.getElementById("menu-itens");
-    if(window.innerWidth >= 700){
+    if(window.innerWidth >= 768){
         itens.style.display = 'block';
     } else {
         itens.style.display = 'none';
