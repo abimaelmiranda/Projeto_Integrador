@@ -14,10 +14,15 @@
         <a href="../index.html"><img class="voltar-button" src="../images/seta-voltar.jpg" alt=""></a>
         <div class="signin-screen">
             <h1 class="signin-title">Cadastre-se</h1>
-            <input class="user-input-field" type="text"  placeholder="Usuário">
-            <input class="passwd-input-field" type="password"  placeholder="Senha">
-            <input id="double-check-pass" class="passwd-input-field" type="password"  placeholder="Confirme sua senha">
-            <button class="signin-button">Cadastrar</button>
+            <form action="">
+                <input class="input-field" type="text"  placeholder="Nome" required>
+                <input class="input-field" type="text"  placeholder="Sobrenome" required>
+                <input class="input-field" type="text"  placeholder="Nome de Usuário" required>
+                <input class="input-field" type="email"  placeholder="E-mail" required>
+                <input class="input-field" type="password"  placeholder="Senha"  required>
+                <input id="double-check-pass" class="input-field" type="password"  placeholder="Confirme sua senha"  required>
+                <button class="signin-button">Cadastrar</button>
+            </form>
             <a class="already-acount" href="login.html">Já possui uma conta?</a>
         </div>
     </main>

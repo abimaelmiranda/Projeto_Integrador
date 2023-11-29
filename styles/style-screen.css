@@ -31,10 +31,10 @@ html, body{
     font-family: var(--fonte-padrao);
 }
 
-header, #menu-itens{
+header{
     display: flex;
-    justify-content: space-between;
-    flex-flow: row;
+    justify-content: space-evenly;
+    flex-flow: row nowrap;
     align-items: center;
     background-color: var(--cor0);
     width: 100vw;
@@ -42,15 +42,15 @@ header, #menu-itens{
 }
 
 .header-title {
-    order: 2;
     color: var(--cor4);
     font-weight: bold;
-    text-align: center;
     font-size: 2.5em;
 }
 
 #menu-itens{
-    order: 3;
+    display: flex;
+    align-items: center;
+    margin-right: 1%;
 }
 
 #menu-itens a{
@@ -58,6 +58,8 @@ header, #menu-itens{
     text-decoration: none;
     color: var(--cor4);
     text-shadow: 1px 1px 1px black;
+    transition: 1s;
+    font-size: 1.3em;
 }
 
 #menu-itens a:hover {
@@ -65,14 +67,12 @@ header, #menu-itens{
 }
 
 
-
 .btn-icon-header{
-    order: 0;
     background-color: transparent;
     border: none;
-    color: var(--cor4);cursor: pointer;
+    color: var(--cor4);
+    cursor: pointer;
     display: none;
-  
 }
 
 
@@ -109,7 +109,6 @@ main{
     text-shadow: 1px 1px 1px black;
 }
 
-
 #secao-principal:hover{
     border: 2px solid lightgray;
     transform: translate(-0.5%, -0.5%);
@@ -139,7 +138,7 @@ main{
     background-color: var(--cor4);
     border-radius: 5px;
     padding: 10px;
-    height: 45px;
+    height: 39px;
     width: 60px;
 }
 
@@ -147,34 +146,19 @@ main{
     background-color: var(--cor4);
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px;
-    height: 45px;
-    width: 60px;
 }
-
-
-.conteudo-box:hover{
-    cursor: pointer;
-    transform: translate(-0.5%, -0.5%);
-    transition: 100ms;
-
-}
-
-.conteudo-box > p{
-    text-indent: 1.5em;
-}
-
 
 
 .conteudo-box{
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    column-gap: 1000px;
+    flex-flow: column wrap;
     margin: 7px auto;
     background-color: rgba(255, 255, 255, 0.589);
     height: 20vh;
     width: 75vw;
-    padding: 20px;
+    padding: 25px;
     backdrop-filter: blur(5px);
     border-radius: 5px;
 }
@@ -186,14 +170,19 @@ main{
     transition: 100ms;
 }
 
+.conteudo-box > p{
+    text-indent: 1.5em;
+    min-width: 400px;
+    max-width: 750px;
+    margin: 50px auto 0 auto;
+}
+
+
 .conteudo-box > h1 {
     width: 130px;
     height: 1px;
 }
 
-.conteudo-box > p{
-    text-indent: 1.5em;
-}
 
 #ancora-top{
     position: fixed;
@@ -213,7 +202,7 @@ main{
     cursor: pointer;
     transform: translate(-0%, -4%);
     transition: 100ms;
-
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.589);
 }
 
 
@@ -227,22 +216,44 @@ footer{
     color: var(--cor0);
 }
 
-
 @media screen and (max-width: 768px) {
-    .btn_icon_header{
+    .btn-icon-header{
         display: block;
     }
     
     #menu-itens{
         position: absolute;
         flex-direction: column;
-        z-index: 999;
         top: 0;
-        background-color: var(--cor0);
+        z-index: 999;
+        background-color: var(--cor1);
         height: 100%;
         width: 35vw;
         padding: 1em;
         animation-duration: 1s;
-        margin-left:-10vw;
+        margin-left: -200vw;
+        margin-right: 0px;
+        animation-name: showSidebar;
     }
+
+    #menu-itens a{ 
+        color: var(--cor0);
+        font-weight: bold;
+    }
+
+    
+    #menu-itens a:hover{ 
+        color: var(--cor0);
+        background-color: var(--cor5);
+        border-radius: 5px;
+    }
+
+    #btn-close-menu{
+        color: var(--cor0);
+    }
+}
+
+@keyframes showSidebar {
+    form{margin-left: -200vw;}
+    top{margin-left: -60vw;}
 }
