@@ -80,7 +80,7 @@ form{
     height: 50px;
     border-radius: 5px;
     border: none;
-
+    text-indent: 1em;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.616);
 }
 
