@@ -263,3 +263,43 @@ header{
     }
 
 }
+
+@media screen and (max-width: 468px) {
+
+    .main-section > h1{
+        font-size: 1em;
+    }
+
+    .main-section{
+        width: 70%;
+    }
+
+    .search-button{
+      width: 40px;
+    }
+    
+    .search-field{
+        width: 150px;
+        justify-self: self-start;
+    }
+
+    .content-box{
+        width: 70%;
+    }
+
+    #btn-nav-menu{
+        display: block;
+        border: none;
+        color: var(--cor4);
+    }
+
+    .header-nav{
+        display: none;
+    }
+    
+    .header-title{
+        align-self: center;
+        margin-right: 15%;
+    }
+
+}
