@@ -42,6 +42,7 @@ header{
     background-color: var(--cor0);
     height: 10%;
     box-shadow: 1px 1px 5px black;
+    padding: 12px;
 }
 
 
@@ -50,11 +51,6 @@ header{
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    /*
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    */
     width: 100vw;
 }
 
@@ -62,13 +58,16 @@ header{
     display: none;
 }
 
-
 .header-title{
     grid-column: 2;
     color: var(--cor4);
     font-size: 2.5em;
 }
 
+.header-title a{
+    text-decoration: none;
+    color: var(--cor4);
+}
 
 .header-nav-list{
     display: flex;
@@ -106,19 +105,58 @@ header{
 .main-section{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 75% 25%;
+    row-gap: 10px;
     width: 500px;
-    height: 200px;
+    height: 150px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.678);
     backdrop-filter: blur(2px);
     border-radius: 5px;
 }
 
-.main-section:hover{
+
+.main-section > h1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: center;
+    align-self: center;
+    font-size: 1.5em;
+    color: var(--cor4);
+}
+
+.search-button{
+    grid-row: 2;
+    grid-column:2 ;
+    justify-self: start;
+    align-self: center;
+    background-color: var(--cor4);
+    color: var(--cor0);
+    width: 70px;
+    height: 45px;
+    padding: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+
+.search-button:hover{
     cursor: pointer;
-    border: 1px solid lightgray;
+    background-color: #f58d55;
+    border: 1px solid --cor3;
     transform: translate(-0.5%, -0.5%);
     transition: 100ms;
+}
+
+.search-field{
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+    align-self: center;
+    text-indent: 1em;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 45px;
 }
 
 .content-box{
@@ -131,6 +169,11 @@ header{
     backdrop-filter: blur(2px);
     border-radius: 5px;
 }
+
+.content-box > h1 {
+    align-self: center;
+}
+
 
 .content-box-footer{
     margin-top: 8px ;
@@ -177,11 +220,32 @@ header{
     background-color: var(--cor4);
     color: var(--cor0);
     height: 3vh;
+    padding: 5px;
 }
 
 
 
 @media screen and (max-width: 768px) {
+
+    .main-section > h1{
+        font-size: 1.3em;
+    }
+
+    .main-section{
+        width: 70%;
+    }
+
+    .search-button{
+      width: 50px;
+    }
+    
+    .search-field{
+        width: 250px;
+    }
+
+    .content-box{
+        width: 70%;
+    }
 
     #btn-nav-menu{
         display: block;
