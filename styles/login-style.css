@@ -1,0 +1,153 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;700&display=swap');
+
+:root{
+
+    --cor0: white;
+    --cor1: #EB8550;
+    --cor2: #EBB650;
+    --cor3: #EA9F50;
+    --cor4: #EB6A50;
+    --cor5: #EBC850;
+
+    --fonte-padrao: 'League Spartan', sans-serif;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+html, body{
+    font-family: var(--fonte-padrao);
+    background-image: url("../images/fundo-do-body.jpg");
+    background-color: var(--cor1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.login-screen-container{
+    position: relative;
+    height: 98vh;
+    width: 98vw;
+}
+
+.login-screen{
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    height: 300px;
+    width: 300px;
+    padding: 25px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    border-radius: 10px;
+    box-shadow: 6px 5px 7px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.932);
+    backdrop-filter: blur(5px);
+}
+
+.login-title{
+    padding-top: 30px;
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.849);
+    color: var(--cor4);
+    
+}
+
+.user-input-field{
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--cor4);
+    text-indent: 10px;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+}
+.user-input-field::placeholder{
+    color: black;
+}
+
+
+.passwd-input-field{
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--cor4);
+    text-indent: 10px;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+}
+
+
+.passwd-input-field::placeholder{
+    color: black;
+}
+
+.voltar-button{
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px; 
+    box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.726);
+}
+
+.voltar-button:hover{
+    transform: translate(+2%, +2%);
+    
+}
+
+.login-button{
+    position: absolute;
+    top: 70%;
+    left: 38%;
+    height: 50px;
+    width: 75px;
+    border: 1px solid rgba(0, 0, 0, 0.329);
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: black;
+    background-color: #eb6a50cb;
+    border-radius: 5px;
+    box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.548);
+}
+
+.login-button:hover{
+    cursor: pointer;
+    background-color: var(--cor1);
+    transform: translate(-1%, -1%);
+    transition: 100ms;
+}
+
+.forgot-pass{
+    position: absolute;
+    top: 90%;
+    left: 31%;
+    color: black;
+    transform: translate(-31% -90%);
+    text-decoration: none;
+    text-shadow: 5px 5px 5px black;
+}
+
+.forgot-pass:hover{
+    text-decoration: underline;
+}
+
