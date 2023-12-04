@@ -130,3 +130,15 @@ form{
     transform: translate(+2%, +2%);
     
 }
+
+
+@media screen and (max-widith: 768px) {
+    .signin-screen{
+    
+        min-height: 600px;
+        min-width: 400px;
+     
+    }
+    
+    
+}
