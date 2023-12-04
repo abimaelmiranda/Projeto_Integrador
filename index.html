@@ -11,7 +11,7 @@
 <body>
     <header id="header-anchor">
         <div class="header-container">
-            <button id="btn-nav-menu">
+            <button id="btn-nav-menu" onclick="toggleMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                 </svg>
@@ -27,11 +27,25 @@
                 </ul>
             </nav>
         </div>
+
+        <aside id="header-nav-menu" class="header-nav-menu">
+            <button class="btn-menu-close" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                  </svg>
+            </button>
+            <a href="index.html">Home</a>
+            <a href="#">Receitas</a>
+            <a href="#">Contato</a>
+            <a class="btnLogin" href="paginas/login.html">Login</a>
+           <a class="btnSignin" href="paginas/sign-in.html">Cadastre-se</a>
+        </aside>
+
     </header>
-    <main id="main">
+    <main id="main" tabindex="0" onclick="closeMenu()">
         <div class="main-content-container">
             <section id="main-section" class="main-section">
-                <h1>O que vamos cozinhar hoje?</h1>
+                <h2>O que vamos cozinhar hoje?</h2>
                 <input class="search-field" type="text" placeholder="Ex: Bolo de rolo...">
                 <button class="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -40,31 +54,31 @@
                 </button>
             </section>
             <section class="content-box">
-                <h1>Bolo de Rolo</h1>
+                <h2>Bolo de Rolo</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero animi consequuntur dolor quam tempora sit blanditiis inventore atque, neque eaque laboriosam consectetur reprehenderit obcaecati, perferendis accusamus aspernatur praesentium unde ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam pariatur eligendi maxime eum, veniam ullam, delectus nesciunt modi exercitationem sint. Quos facere accusamus fugit amet, nemo quod facilis cum.</p>
                 <span class="content-box-footer"></span>
                 
             </section>
             <section class="content-box">
-                <h1>Bolo de Rolo</h1>
+                <h2>Bolo de Rolo</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero animi consequuntur dolor quam tempora sit blanditiis inventore atque, neque eaque laboriosam consectetur reprehenderit obcaecati, perferendis accusamus aspernatur praesentium unde ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam pariatur eligendi maxime eum, veniam ullam, delectus nesciunt modi exercitationem sint. Quos facere accusamus fugit amet, nemo quod facilis cum.</p>
                 <span class="content-box-footer"></span>
                 
             </section>
             <section class="content-box">
-                <h1>Bolo de Rolo</h1>
+                <h2>Bolo de Rolo</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero animi consequuntur dolor quam tempora sit blanditiis inventore atque, neque eaque laboriosam consectetur reprehenderit obcaecati, perferendis accusamus aspernatur praesentium unde ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam pariatur eligendi maxime eum, veniam ullam, delectus nesciunt modi exercitationem sint. Quos facere accusamus fugit amet, nemo quod facilis cum.</p>
                 <span class="content-box-footer"></span>
                 
             </section>
             <section class="content-box">
-                <h1>Bolo de Rolo</h1>
+                <h2>Bolo de Rolo</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero animi consequuntur dolor quam tempora sit blanditiis inventore atque, neque eaque laboriosam consectetur reprehenderit obcaecati, perferendis accusamus aspernatur praesentium unde ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam pariatur eligendi maxime eum, veniam ullam, delectus nesciunt modi exercitationem sint. Quos facere accusamus fugit amet, nemo quod facilis cum.</p>
                 <span class="content-box-footer"></span>
                 
             </section>
             <section class="content-box">
-                <h1>Bolo de Rolo</h1>
+                <h2>Bolo de Rolo</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero animi consequuntur dolor quam tempora sit blanditiis inventore atque, neque eaque laboriosam consectetur reprehenderit obcaecati, perferendis accusamus aspernatur praesentium unde ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, numquam pariatur eligendi maxime eum, veniam ullam, delectus nesciunt modi exercitationem sint. Quos facere accusamus fugit amet, nemo quod facilis cum.</p>
                 <span class="content-box-footer"></span>
                 
@@ -72,8 +86,7 @@
             <a href="#header-anchor"><span id="anchor-top"></span></a>
         </div>
     </main>
-    <script>
-    </script>
+    <script src="scripts/mobile-navbar.js"></script>
     <footer class="footer">
         <p>Nossa cozinha, 2023</p>
     </footer>
