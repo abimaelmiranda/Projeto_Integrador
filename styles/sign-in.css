@@ -22,7 +22,7 @@
 
 html, body{
     font-family: var(--fonte-padrao);
-    background-image: url("../images/fundo-do-body.jpg");
+    background-image: url("../images/fundo02.jpg");
     background-color: var(--cor1);
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,9 +46,9 @@ html, body{
     row-gap: 15px;
     top: 50%;
     left: 50%;
-    min-height: 600px;
-    min-width: 400px;
-    padding: 25px;
+    height: 603px;
+    width: 400px;
+    padding: 30px;
     transform: translate(-50%, -50%);
     border: 1px solid rgba(0, 0, 0, 0.37);
     border-radius: 10px;
@@ -131,7 +131,7 @@ form{
     
 }
 
-
+/*
 @media screen and (max-widith: 768px) {
     .signin-screen{
     
@@ -142,3 +142,4 @@ form{
     
     
 }
+*/
