@@ -26,6 +26,7 @@ html, body{
     background-color: var(--cor1);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top center;
     background-attachment: fixed;
     height: 100vh;
     width: 100vw;
@@ -63,13 +64,19 @@ form{
     row-gap: 25px;
 }
 
+form > fieldset{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    row-gap: 25px;
+    border: none;
+}
+
 .login-title{
     padding-top: 30px;
     text-align: center;
     font-size: 3em;
-    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.849);
     color: var(--cor4);
-    
 }
 
 .user-input-field{
@@ -88,7 +95,6 @@ form{
     color: black;
 }
 
-
 .passwd-input-field{
     display: block;
     height: 30px;
@@ -99,6 +105,10 @@ form{
     text-indent: 10px;
     font-family: var(--fonte-padrao);
     font-size: 1em;
+}
+
+.passwd-input-field:focus, .user-input-field:focus{
+    outline: none;
 }
 
 .passwd-input-field::placeholder{
@@ -147,7 +157,6 @@ aside{
     align-items: center;
     height: 70px;
 }
-
 
 .forgot-pass{
     display: block;
