@@ -31,3 +31,7 @@ function fixarHeader() {
     header.classList.remove("sticky");
   }
 }
+
+function scrollTop() {
+  window.scrollTo(0,0)
+}
