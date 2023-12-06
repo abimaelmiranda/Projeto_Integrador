@@ -41,12 +41,12 @@ html, body{
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
-    row-gap: 15px;
+    row-gap: 10px;
     top: 50%;
     left: 50%;
     height: 603px;
     width: 400px;
-    padding: 30px;
+    padding: 10px 15px;
     transform: translate(-50%, -50%);
     border: 1px solid rgba(0, 0, 0, 0.37);
     border-radius: 10px;
