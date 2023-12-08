@@ -19,9 +19,9 @@
     padding: 0px;
 }
 
-html, body{
+ html, body{
     scroll-behavior: smooth;
-    background-image: url("../images/homepage-bg.jpg");
+    background-image: url("../images/homepage-bg.webp");
     background-color: var(--cor1);
     background-repeat: no-repeat;
     background-size: cover;
@@ -110,7 +110,8 @@ header{
     align-items: center;
     margin: 10px auto;
     row-gap: 6px;
-    width: 98vw;
+    width: 100%;
+
 }
 
 .main-section{
@@ -119,7 +120,7 @@ header{
     width: 500px;
     height: 150px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.678);
+    background-color: rgba(255, 255, 255, 0.87);
     backdrop-filter: blur(2px);
     border-radius: 5px;
 }
@@ -181,7 +182,7 @@ header{
     width: 500px;
     height: 200px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.678);
+    background-color: rgba(255, 255, 255, 0.87);
     backdrop-filter: blur(2px);
     border-radius: 5px;
 }

@@ -4,18 +4,21 @@ window.onscroll = function() {fixarHeader()};
 
 function toggleMenu(){
     let navegationHeader = document.getElementById('header-nav-menu');
+    let acnhor = document.getElementById('anchor-top');
     let content = document.getElementById('main');
     showMenu = !showMenu;
     if(showMenu){
         navegationHeader.style.marginLeft = "0vw"
         navegationHeader.style.animationName = 'showMenu'
-        content.style.filter = `blur(2px)`
-        content.style.backdropFilter = `blur(2px)`  
+        acnhor.style.display = `none`
+     /*   content.style.filter = `blur(2px)`
+        content.style.backdropFilter = `blur(2px)`  */
     }else{
         navegationHeader.style.marginLeft = "-100vw"
         navegationHeader.style.animationName = 'hideMenu'
-        content.style.filter = ``
-        content.style.backdropFilter = ``
+        acnhor.style.display = `block`
+      /*  content.style.filter = ``
+        content.style.backdropFilter = ``*/
     }
 }
 

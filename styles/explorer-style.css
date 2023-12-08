@@ -178,8 +178,9 @@ select:focus{
 
 .post-content-header{
     display: grid;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    /*grid-row-start: 1;
+    grid-row-end: 4;*/
+    grid-row: span 3;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     height: 150px;
@@ -212,9 +213,9 @@ select:focus{
 }
 
 .post-img-container{
-    
-    grid-row-start: 4;
-    grid-row-end: 23;
+    grid-row: span 19;
+   /* grid-row-start: 4;
+    grid-row-end: 23;*/
     height: 100%;
     width: 100%;
 }
@@ -226,8 +227,8 @@ select:focus{
 }
 
 .post-content-footer{
-    grid-row-start: 23;
-    grid-row-end: 25;
+    /*grid-row-start: 23;
+    grid-row-end: 25;*/
     padding: 10px;
     background-color: var(--cor3);
     border-bottom-right-radius: 10px;

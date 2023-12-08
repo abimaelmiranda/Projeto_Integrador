@@ -19,12 +19,13 @@
       left: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       row-gap: 25px;
       background-color: var(--cor0);
       width: 35vw;
       height: 100vh;
       padding: 16px;
+      border-right: 2px solid var(--cor4);
       will-change: scroll-position;
       animation-duration: 0.3s;
       -webkit-animation-duration: 0.3s;
@@ -33,8 +34,9 @@
   }
 
   .btn-menu-close {
+    align-self: center;
       margin-top: 5px;
-      padding: 5px;
+      padding: 5px 30px 5px 5px;
       background-color: transparent;
       border: none;
       color: var(--cor4);
