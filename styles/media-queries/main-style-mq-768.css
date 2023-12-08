@@ -25,7 +25,9 @@
       width: 35vw;
       height: 100vh;
       padding: 16px;
-      animation-duration: 0.5s;
+      will-change: scroll-position;
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
       margin-left: -100vw;
       z-index: 999;
   }
@@ -89,3 +91,13 @@
       align-self: end;
       height: 40px;
   }
+
+ @keyframes showMenu{
+    from {margin-left: -100vw;}
+    to{margin-left: 0vw;}
+}
+
+@keyframes hideMenu{
+    from {margin-left: 0vw;}
+    to{margin-left: -100vw;}
+}

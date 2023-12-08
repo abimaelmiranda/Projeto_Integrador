@@ -115,8 +115,7 @@ header{
     align-items: center;
     margin: 10px auto;
     row-gap: 6px;
-    width: 100vw;
-    height: 100vh;
+    height: auto;
 }
 
 .main-section{
@@ -229,7 +228,7 @@ select:focus{
 .post-content-footer{
     grid-row-start: 23;
     grid-row-end: 25;
-
+    padding: 10px;
     background-color: var(--cor3);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;

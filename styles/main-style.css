@@ -100,6 +100,7 @@ header{
 
 .main{
     position: relative;
+    height: auto;
 }
 
 .main-content-container{
@@ -236,14 +237,4 @@ header{
     height: 3vh;
     padding: 5px;
     box-shadow: 10px -px -1px black ;
-}
-
-@keyframes showMenu{
-    from {margin-left: -100vw;}
-    top{margin-left: 0vw;}
-}
-
-@keyframes hideMenu{
-    from {margin-left: 0vw;}
-    top{margin-left: -100vw;}
 }

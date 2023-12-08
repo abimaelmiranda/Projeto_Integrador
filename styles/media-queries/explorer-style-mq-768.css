@@ -25,7 +25,9 @@
     width: 35vw;
     height: 100vh;
     padding: 16px;
-    animation-duration: 0.5s;
+    will-change: scroll-position;
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
     margin-left: -100vw;
     z-index: 999;
 }
