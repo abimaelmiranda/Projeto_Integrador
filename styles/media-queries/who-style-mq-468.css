@@ -1,0 +1,24 @@
+#btn-nav-menu {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: var(--cor4);
+}
+
+#btn-nav-menu:hover {
+    cursor: pointer;
+}
+
+.header-nav>ul {
+    display: none;
+}
+
+.header-nav-menu {
+    width: 50vw;
+
+}
+
+.content-box{
+    height: 450px;
+    width: 95%;
+}
