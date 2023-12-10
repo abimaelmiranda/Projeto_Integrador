@@ -13,24 +13,22 @@
     --fonte-padrao: 'League Spartan', sans-serif;
 }
 
-
 *{
     margin: 0px;
     padding: 0px;
 }
 
-
 html, body{
     font-family: var(--fonte-padrao);
-    background-image: url("../images/fundo-do-body.jpg");
+    background-image: url("../images/fundo02.jpg");
     background-color: var(--cor1);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top center;
     background-attachment: fixed;
     height: 100vh;
     width: 100vw;
 }
-
 
 .signin-screen-container{
     position: relative;
@@ -43,12 +41,12 @@ html, body{
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
-    row-gap: 15px;
+    row-gap: 10px;
     top: 50%;
     left: 50%;
-    min-height: 600px;
-    min-width: 400px;
-    padding: 25px;
+    height: 603px;
+    width: 400px;
+    padding: 10px 15px;
     transform: translate(-50%, -50%);
     border: 1px solid rgba(0, 0, 0, 0.37);
     border-radius: 10px;
@@ -73,6 +71,13 @@ form{
     margin-bottom: 5px;
 }
 
+form > fieldset{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    row-gap: 20px;
+    border: none;
+}
 
 .input-field{
     align-self: center;
@@ -80,8 +85,12 @@ form{
     height: 50px;
     border-radius: 5px;
     border: none;
-
+    text-indent: 1em;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.616);
+}
+
+.input-field:focus{
+    outline: none;
 }
 
 .signin-button{
@@ -111,7 +120,6 @@ form{
     text-shadow: 5px 5px 5px black;
 }
 
-
 .already-acount:hover{
     text-decoration: underline;
 }
@@ -128,5 +136,5 @@ form{
 
 .voltar-button:hover{
     transform: translate(+2%, +2%);
-    
 }
+

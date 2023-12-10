@@ -1,0 +1,136 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;700&display=swap');
+
+:root{
+
+    --cor0: #F0F0F0;
+    --cor1: #EB8550;
+    --cor2: #EBB650;
+    --cor3: #EA9F50;
+    --cor4: #EB6A50;
+    --cor5: #EBC850;
+
+    --fonte-padrao: 'League Spartan', sans-serif;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ html, body{
+    scroll-behavior: smooth;
+    background-image: url("../images/homepage-bg.webp");
+    background-color: var(--cor1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100svh;
+    /*width: 100vw;*/
+    font-family: var(--fonte-padrao);
+}
+
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--cor0);
+    height: 13%;
+    box-shadow: 1px 1px 5px black;
+    padding: 12px 0px;
+    z-index: 998;
+}
+
+.sticky /*classe adicionada via JS para tornar o header fixo*/{
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+.sticky + main {
+    padding-top: 102px;
+ }
+
+.header-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+
+#btn-nav-menu{
+    display: none;
+}
+
+.header-title{
+    grid-column: 2;
+    color: var(--cor4);
+    font-size: 2.5em;
+}
+
+.header-title a{
+    text-decoration: none;
+    color: var(--cor4);
+}
+
+.header-nav-list{
+    display: flex;
+    list-style: none;
+    column-gap: 5px;
+    width: 50vw;
+}
+
+.header-nav-list a{
+    padding: 8px;
+    text-decoration: none;
+    color: var(--cor4);
+    transition: 0.5s;
+}
+
+.header-nav-list a:hover{
+    background-color: #eb6a5042;
+    border-radius: 5px;
+}
+
+.header-nav-menu{
+    display: none;
+}
+
+main{
+   display: flex;
+   height: 100svh;
+   justify-content: center;
+
+}
+
+.content-box{
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 800px;
+    height: 400px;
+    padding: 30px;
+    background-color: var(--cor0);
+    border: 2.5px solid var(--cor4);
+    border-radius: 10px;
+}
+
+.content-box > h1{
+    font-size: 1.8em;
+    color: var(--cor4);
+
+} 
+
+.content-box > p {
+    width: 95%;
+    text-align: justify;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}
+
+

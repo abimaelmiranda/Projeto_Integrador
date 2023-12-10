@@ -22,10 +22,11 @@
 
 html, body{
     font-family: var(--fonte-padrao);
-    background-image: url("../images/fundo-do-body.jpg");
+    background-image: url("../images/fundo02.jpg");
     background-color: var(--cor1);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top center;
     background-attachment: fixed;
     height: 100vh;
     width: 100vw;
@@ -34,19 +35,21 @@ html, body{
 
 .login-screen-container{
     position: relative;
-    height: 98vh;
-    width: 98vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
 .login-screen{
-    position: absolute;
-    display: block;
-    top: 50%;
-    left: 50%;
-    height: 300px;
+    display: flex;
+    flex-flow:column ;
+    align-items: center;
+    row-gap: 30px;
+    height: 350px;
     width: 300px;
     padding: 25px;
-    transform: translate(-50%, -50%);
     border: 1px solid rgba(0, 0, 0, 0.37);
     border-radius: 10px;
     box-shadow: 6px 5px 7px rgba(0, 0, 0, 0.5);
@@ -54,19 +57,30 @@ html, body{
     backdrop-filter: blur(5px);
 }
 
+form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    row-gap: 25px;
+}
+
+form > fieldset{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    row-gap: 25px;
+    border: none;
+}
+
 .login-title{
     padding-top: 30px;
     text-align: center;
     font-size: 3em;
-    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.849);
     color: var(--cor4);
-    
 }
 
 .user-input-field{
-    position: absolute;
-    top: 40%;
-    left: 25%;
+    display: block;
     height: 30px;
     border: none;
     background-color: transparent;
@@ -76,15 +90,13 @@ html, body{
     font-family: var(--fonte-padrao);
     font-size: 1em;
 }
+
 .user-input-field::placeholder{
     color: black;
 }
 
-
 .passwd-input-field{
-    position: absolute;
-    top: 55%;
-    left: 25%;
+    display: block;
     height: 30px;
     border: none;
     background-color: transparent;
@@ -95,6 +107,9 @@ html, body{
     font-size: 1em;
 }
 
+.passwd-input-field:focus, .user-input-field:focus{
+    outline: none;
+}
 
 .passwd-input-field::placeholder{
     color: black;
@@ -116,9 +131,7 @@ html, body{
 }
 
 .login-button{
-    position: absolute;
-    top: 70%;
-    left: 38%;
+    display: block;
     height: 50px;
     width: 75px;
     border: 1px solid rgba(0, 0, 0, 0.329);
@@ -137,17 +150,34 @@ html, body{
     transition: 100ms;
 }
 
+aside{
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+    align-items: center;
+    height: 70px;
+}
+
 .forgot-pass{
-    position: absolute;
-    top: 90%;
-    left: 31%;
+    display: block;
     color: black;
     transform: translate(-31% -90%);
     text-decoration: none;
-    text-shadow: 5px 5px 5px black;
 }
 
 .forgot-pass:hover{
     text-decoration: underline;
 }
+
+.signin{
+    display: block;
+    color: black;
+    transform: translate(-31% -90%);
+    text-decoration: none;
+}
+
+.signin:hover{
+    text-decoration: underline;
+}
+
 
