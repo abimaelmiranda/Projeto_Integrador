@@ -1,0 +1,34 @@
+<%- include('./includes/head'); %>
+    <%- include('./includes/header'); %>
+
+        <body>
+            <h1 class="title"> Olá <%= user.name %></h1>
+            <main class='main-content-container'>
+                <section class="share-recepie-container">
+                    <form action="/kitchen/:id/recipe-submit" class="recipe-form" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <h2 class="title">Compartilhe sua receita!</h2>
+                        <%- include('includes/messages')  %>
+                        <fieldset>
+                            <input type="text" name="recipeTitle" placeholder="Titulo da receita" class="input-field recipeTitle">
+                            <textarea type="text" name="shortDescription" placeholder="Uma breve descrição de sua receita" class="input-field shortDescription" rows="3"></textarea>
+                            <textarea type="text" name="ingredients" placeholder="Ingredientes (adicione uma linha para cada ingrediente)" class="input-field ingredients" rows="4"></textarea>
+                            <textarea type="text" name="preparationMethod" placeholder="Modo de preparo" class="input-field preparationMethod"></textarea>
+                            <input type="hidden" class="ingredientsArray" name="ingredientsArray" value="">
+                        </fieldset>
+                        <button class="submit-button" type="submit">Compartilhar</button>
+                    </form>
+                </section>
+                <aside class="asideMenu">
+                    <h2 class="title">Utensílios :)</h2>
+                    <ul>
+                        <li><a href="/kitchen/<%= user._id %>/myRecipes">Minhas Receitas</a></li>
+                        <li><a href="">Receitas Salvas</a></li>
+                    </ul>
+                </aside>
+                <script type="text/javascript" src="/assets/js/bundle.js"></script>
+                <a><span id="anchor-top"></span></a>
+            </main>
+          
+        </body>
+        </html>
