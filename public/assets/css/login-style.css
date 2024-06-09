@@ -1,0 +1,170 @@
+@import url('reset.css');
+
+
+html, body{
+    background-image: url("../images/fundo02.jpg");
+    background-color: var(--cor1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    width: 100vw;
+}
+
+
+.login-screen-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login-screen{
+    display: flex;
+    flex-flow:column ;
+    align-items: center;
+    row-gap: 30px;
+    height: 370px;
+    width: 300px;
+    padding: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    border-radius: 10px;
+    box-shadow: 6px 5px 7px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.932);
+    backdrop-filter: blur(5px);
+}
+
+form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    row-gap: 25px;
+}
+
+form > fieldset{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    row-gap: 25px;
+    border: none;
+}
+
+.login-title{
+    padding-top: 30px;
+    text-align: center;
+    font-size: 3em;
+    color: var(--cor4);
+}
+
+.user-input-field{
+    display: block;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--cor4);
+    text-indent: 10px;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+}
+
+.user-input-field::placeholder{
+    color: black;
+}
+
+.passwd-input-field{
+    display: block;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--cor4);
+    text-indent: 10px;
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+}
+
+.passwd-input-field:focus, .user-input-field:focus{
+    outline: none;
+}
+
+.passwd-input-field::placeholder{
+    color: black;
+}
+
+.voltar-button{
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px; 
+    box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.726);
+}
+
+.voltar-button:hover{
+    transform: translate(+2%, +2%);
+    
+}
+
+.login-button{
+    display: block;
+    height: 50px;
+    width: 75px;
+    border: 1px solid rgba(0, 0, 0, 0.329);
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: black;
+    background-color: #eb6a50cb;
+    border-radius: 5px;
+    box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.548);
+}
+
+.login-button:hover{
+    cursor: pointer;
+    background-color: var(--cor1);
+    transform: translate(-1%, -1%);
+    transition: 100ms;
+}
+
+aside{
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
+    align-items: center;
+    height: 70px;
+}
+
+.forgot-pass{
+    display: block;
+    color: black;
+    transform: translate(-31% -90%);
+    text-decoration: none;
+}
+
+.forgot-pass:hover{
+    text-decoration: underline;
+}
+
+.signin{
+    display: block;
+    color: black;
+    transform: translate(-31% -90%);
+    text-decoration: none;
+}
+
+.signin:hover{
+    text-decoration: underline;
+}
+
+
+div.error{
+    color:red;
+    text-align: center;
+}
+div.success{
+    color: rgb(22, 194, 22);
+    text-align: center;
+}
