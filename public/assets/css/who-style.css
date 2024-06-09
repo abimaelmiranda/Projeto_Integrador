@@ -1,0 +1,47 @@
+@import url('reset.css');
+
+ html, body{
+    background-image: url("../images/homepage-bg.webp");
+    background-color: var(--cor1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100svh;
+    /*width: 100vw;*/
+    overflow-y: hidden;
+}
+
+main{
+   display: flex;
+   height: 100svh;
+   justify-content: center;
+
+}
+
+.content-box{
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 800px;
+    height: 400px;
+    padding: 30px;
+    background-color: var(--cor0);
+    border: 2.5px solid var(--cor4);
+    border-radius: 10px;
+}
+
+.content-box > h1{
+    font-size: 1.8em;
+    color: var(--cor4);
+
+} 
+
+.content-box > p {
+    width: 95%;
+    text-align: justify;
+    line-height: 1.1em;
+    font-size: 1.1em;
+}
+
+
