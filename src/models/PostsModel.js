@@ -92,7 +92,6 @@ class Post {
       ingredientsArray: this.body.ingredientsArray,
       preparationMethod: this.body.preparationMethod,
       createdIn: this.body.createdIn,
-      isSaved: this.body.isSaved,
       author: this.author,
     };
   }
