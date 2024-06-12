@@ -19,6 +19,7 @@ body{
     display: grid;
     grid-template-rows: 7% 3% 90% ;
     width: 98%;
+    /* height: 100%; */
     box-sizing: border-box;
     padding: 15px;
     background-color: white;
@@ -51,7 +52,7 @@ body{
 .post-list-container{
     display: flex;
     box-sizing: border-box;
-    gap: 10px;
+    gap: 25px;
     flex-flow: row wrap;
     width: 100%;
     height: 100%;
@@ -82,8 +83,9 @@ select:focus{
     grid-template-rows: repeat(23, 1fr);
     grid-template-columns: 1fr;
     background-color: var(--cor0);
-    height: 400px;
-    width: 350px;
+    height: 17%;
+    max-width: 400px;
+    min-width: 300px;
     border: 1 solid salmon;
     border-radius: 10px;
     box-sizing: border-box;
