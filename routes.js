@@ -4,9 +4,9 @@ const homeController = require('./src/controllers/homeController');
 const headerController = require('./src/controllers/headerController');
 const signInController = require('./src/controllers/signInController');
 const loginController = require('./src/controllers/loginController');
-const kitchenController = require('./src/controllers/kitchenController');
+const kitchenController = require('./src/controllers/KitchenController');
 const { loginRequired, loginRequired2 } = require('./src/middlewares/middleware');
-const recipeController = require('./src/controllers/recipeController');
+const recipeController = require('./src/controllers/RecipeController');
 
 
 

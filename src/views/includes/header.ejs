@@ -18,7 +18,7 @@
                     <li><a class="btnLogin" href="/login">Login</a></li>
                 <% } else { %>
                     <li><a class="btnSignin" href="/kitchen/<%= user._id %>">Minha Cozinha</a></li>
-                    <li><a class="btnLogin" href="/logout">Sair</a></li>
+                    <li><a class="btnLogin" href="/login/logout">Sair</a></li>
                 <% } %>
                  
                 
@@ -42,7 +42,7 @@
             <a class="btnLogin" href="/login">Login</a>
         <% } else { %>
             <a class="btnSignin" href="/kitchen/<%= user._id %>">Minha Cozinha</a>
-            <a class="btnLogin" href="/logout">Sair</a>
+            <a class="btnLogin" href="/login/logout">Sair</a>
         <% } %>
     </aside>
 </header>

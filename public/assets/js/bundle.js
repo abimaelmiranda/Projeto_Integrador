@@ -55,7 +55,7 @@ var LoginValidation = /*#__PURE__*/function () {
               password = document.querySelector('.passwd-input-field').value;
               csrf = document.querySelector('input[name=_csrf]').value; // let error = false;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/login/submit', {
+              return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/login', {
                 username: username,
                 password: password,
                 _csrf: csrf
@@ -132,6 +132,9 @@ var PostValidation = /*#__PURE__*/function () {
         return ingredient.trim();
       });
       var ingredientsArray = el.querySelector('.ingredientsArray');
+      var image = el.querySelector('.imageFile').files[0];
+      var csrf = document.querySelector('input[name=_csrf]').value;
+      console.log(image);
       var error = false;
       ingredientsArray.value = JSON.stringify(ingredientsValue);
       if (!error) el.submit();
@@ -164,7 +167,7 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator( /*
       case 0:
         _context2.prev = 0;
         _context2.next = 3;
-        return axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/getSavedRecipes');
+        return axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/recipes/getSavedRecipes');
       case 3:
         response = _context2.sent;
         savedRecipes = response.data;
@@ -193,7 +196,7 @@ document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator( /*
                 while (1) switch (_context.prev = _context.next) {
                   case 0:
                     csrf = recipeIDInput.closest(".content-box").querySelector("input[name=_csrf]").value;
-                    endpoint = recipeIDInput.checked ? "/recipeSave" : "/recipeUnsave";
+                    endpoint = recipeIDInput.checked ? "/recipes/save" : "/recipes/unsave";
                     payload = {
                       recipeID: recipeIDInput.id,
                       _csrf: csrf

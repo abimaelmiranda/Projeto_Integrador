@@ -15,7 +15,7 @@ const PostModel = mongoose.model("post", PostsSchema);
 
 class Post {
   constructor(body, req) {
-    this.body = body;
+    this.body = body.data;
     this.author = req.session.user._id;
     this.errors = [];
     this.post = null;
@@ -91,8 +91,9 @@ class Post {
       shortDescription: this.body.shortDescription,
       ingredientsArray: this.body.ingredientsArray,
       preparationMethod: this.body.preparationMethod,
-      createdIn: this.body.createdIn,
       author: this.author,
+      createdIn: this.body.createdIn,
+      imagePath: this.body.imagePath
     };
   }
 }

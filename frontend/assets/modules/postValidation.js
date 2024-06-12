@@ -23,6 +23,10 @@ export default class PostValidation {
         const preparationMethod = el.querySelector('.preparationMethod');
         const ingredientsValue = ingredients.value.split('\n').map(ingredient => ingredient.trim());
         const ingredientsArray = el.querySelector('.ingredientsArray');
+        const image = el.querySelector('.imageFile').files[0];
+        const csrf = document.querySelector('input[name=_csrf]').value;
+
+        console.log(image);
 
         let error = false;
 
