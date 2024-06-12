@@ -24,8 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
     mainContainer.addEventListener("click", closeMenu);
   }
 
-  
-
   window.addEventListener("scroll", () => {
     fixarFooter();
     fixarHeader();

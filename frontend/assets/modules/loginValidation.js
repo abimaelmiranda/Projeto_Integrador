@@ -25,16 +25,13 @@ export default class LoginValidation {
         
         // let error = false;
 
-       await axios.post('/login/submit', {username, password, _csrf: csrf})
+       await axios.post('/login', {username, password, _csrf: csrf})
         .then(response => {
             const userId = response.data.userId;
             window.location.href = `/kitchen/${userId}`
         }).catch(e =>{
             console.log(e)
         });
-
-   
-
     }
 }
 

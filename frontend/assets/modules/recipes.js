@@ -2,7 +2,7 @@ import axios from "axios";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await axios.get('/getSavedRecipes');
+    const response = await axios.get('/recipes/getSavedRecipes');
     const savedRecipes = response.data; 
     
     savedRecipes.savedRecipes.forEach(id => {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     recipeIDInputs.forEach((recipeIDInput) => {
       recipeIDInput.addEventListener("click", async () => {
         const csrf = recipeIDInput.closest(".content-box").querySelector("input[name=_csrf]").value;
-        const endpoint = recipeIDInput.checked ? "/recipeSave" : "/recipeUnsave";
+        const endpoint = recipeIDInput.checked ? "/recipes/save" : "/recipes/unsave";
         const payload = { recipeID: recipeIDInput.id, _csrf: csrf };
 
         try {

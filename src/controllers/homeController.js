@@ -1,10 +1,13 @@
-const PostModel = require('../models/PostsModel')
+import PostModel from '../models/PostsModel';
 
-
-exports.homePage = async (req, res) => {
+class HomeController {
+    async index(req, res) {
     const posts = await PostModel.homeSearch()
     res.render('index', {
         currentPage: 'home',
         posts: posts
     });
+    }
 }
+
+export default new HomeController();

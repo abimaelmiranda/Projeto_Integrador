@@ -1,7 +1,13 @@
 const Login = require("../models/LoginModel");
 
-exports.submit = async (req, res) => {
-  try {
+class LoginController {
+  index(req, res){
+    res.render("login", {
+      currentPage: "login"
+    });
+  }
+
+  async store(req, res) { 
     const login = new Login(req.body);
     await login.login();
 
@@ -15,15 +21,17 @@ exports.submit = async (req, res) => {
 
     req.session.user = login.user;
     req.session.save(() => {
-      return res.status(200).json({ userId: login.user._id });
+      return res.status(200).json({ userId: req.session.user._id });
     });
-  } catch (e) {
+  } catch (err) {
     res.render("404", { currentPage: "404" });
-    console.log(e);
+    console.log(err);
   }
-};
 
-exports.logout = (req, res) => {
-  req.session.destroy();
-  res.redirect("/");
-};
+  logout(req, res) {
+    req.session.destroy();
+    res.redirect("/");
+  }
+}
+
+export default new LoginController();
