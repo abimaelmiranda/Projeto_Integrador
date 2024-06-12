@@ -42,6 +42,19 @@ body {
   backdrop-filter: blur(5px);
 }
 
+.asideMenu a {
+  align-self: center;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  font-family: var(--fonte-padrao);
+  font-size: 1.2em;
+  color: black;
+  background-color: #eb6a50cb;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.548);
+  box-sizing: border-box;
+}
+
 form {
   display: flex;
   flex-flow: column wrap;
