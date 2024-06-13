@@ -16,10 +16,8 @@ class RecipeController {
         });
         return;
       }
-  
       req.flash("success", 'Receita publicada!');
       req.session.save(() => {
-        console.log(req.body)
         return res.redirect(`/kitchen/${req.session.user._id}`);
       });
   
