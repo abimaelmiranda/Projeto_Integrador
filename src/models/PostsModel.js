@@ -5,18 +5,20 @@ const PostsSchema = new mongoose.Schema({
   shortDescription: { type: String, required: true },
   ingredientsArray: { type: [String], required: true },
   preparationMethod: { type: String, required: true },
-  createdIn: { type: Date, default: Date.now() },
-  author: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
   upvotes: { type: Number, default: 0 },
   downvotes: { type: Number, default: 0 },
+  recipeImage: { type: String },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  createdIn: { type: Date, default: Date.now() },
 });
 
 const PostModel = mongoose.model("post", PostsSchema);
 
 class Post {
   constructor(body, req) {
-    this.body = body.data;
+    this.body = body;
     this.author = req.session.user._id;
+    this.recipeImage = req.file.filename;
     this.errors = [];
     this.post = null;
   }
@@ -93,7 +95,7 @@ class Post {
       preparationMethod: this.body.preparationMethod,
       author: this.author,
       createdIn: this.body.createdIn,
-      imagePath: this.body.imagePath
+      recipeImage: this.recipeImage,
     };
   }
 }
