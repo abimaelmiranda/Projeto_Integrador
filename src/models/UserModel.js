@@ -8,6 +8,8 @@ const UserSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
+  upvotedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
+  downvotedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
   savedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
 });
 
@@ -62,17 +64,74 @@ class User {
       return
   }
 
-  async getSavedRecipes(userId) {
+  static async upvote(recipeId, userId) {
+    const user = await UserModel.findById(userId);
+  
+    if (user.upvotedRecipes.includes(recipeId)) {
+      await this.unUpvoteRecipe(recipeId, userId);
+      return
+    } else {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        { $push: { upvotedRecipes: recipeId } },
+        { new: true }
+      );
+    }
+  }
+
+  static async downvote(recipeId, userId) {
+    const user = await UserModel.findById(userId);
+  
+    if (user.downvotedRecipes.includes(recipeId)) {
+      await this.unDownvoteRecipe(recipeId, userId);
+      return
+    } else {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        { $push: { downvotedRecipes: recipeId } },
+        { new: true }
+      );
+    }
+  }
+
+  static async unDownvoteRecipe(recipeId, userId) {
+    const user = await UserModel.findById(userId);
+    if (user.downvotedRecipes.includes(recipeId)) {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        { $pull: { downvotedRecipes: recipeId } },
+        { new: true }
+      );
+      return
+    }
+      return
+  }
+
+  static async unUpvoteRecipe(recipeId, userId) {
+    const user = await UserModel.findById(userId);
+    if (user.upvotedRecipes.includes(recipeId)) {
+      await UserModel.findByIdAndUpdate(
+        userId,
+        { $pull: { upvotedRecipes: recipeId } },
+        { new: true }
+      );
+      return
+    }
+      return
+  }
+
+  static async getDetails(userId) {
     try {
 
-      await this.userExists();
-  
       const user = await UserModel.findById(userId);
-      const recipeIds = user.savedRecipes.map(recipe => String(recipe));
-  
-      return recipeIds;
+
+      const upvoted = user.upvotedRecipes.map(recipe => String(recipe)); 
+      const downvoted = user.downvotedRecipes.map(recipe => String(recipe));
+      const savedRecipes = user.savedRecipes.map(recipe => String(recipe));
+
+      return { upvoted, downvoted, savedRecipes } 
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 

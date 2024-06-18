@@ -1,5 +1,6 @@
 import UserModel from"../models/UserModel";
 import Post from "../models/PostsModel";
+import User from "../models/UserModel";
 
 class RecipeController {
 
@@ -41,7 +42,7 @@ class RecipeController {
 
   async unsave(req, res) {
     try {
-      const unsave = new UserModel(req.body);
+      const unsave = new UserModel(req.body, req);
       await unsave.unSaveRecipe(req.body.recipeID, req.session.user._id);
       res.status(200).json({ message: "Receita removida com sucesso" });
     } catch (error) {
@@ -49,11 +50,59 @@ class RecipeController {
     }
   }
 
-  async getSavedRecipes(req, res) {
+  async upvote(req, res) {
     try {
-      const user = new UserModel(req.body);
-      const savedRecipes = await user.getSavedRecipes(req.session.user._id);
-      res.status(200).json( { savedRecipes });
+      await Post.upvote(req.body.recipeID, req.session.user._id);
+      await UserModel.upvote(req.body.recipeID, req.session.user._id);
+      res.status(200).json(
+        { message: "Upvote salvo com sucesso"}
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async unUpvote(req, res) {
+    try {
+      await Post.unUpvote(req.body.recipeID, req.session.user._id);
+      await UserModel.unUpvoteRecipe(req.body.recipeID, req.session.user._id);
+      res.status(200).json(
+        { message: "Upvote removido com sucesso"}
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async downvote(req, res) {
+    try {
+      await Post.downvote(req.body.recipeID, req.session.user._id);
+      await UserModel.downvote(req.body.recipeID, req.session.user._id);
+      res.status(200).json(
+        { message: "downvote salvo com sucesso"}
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async unDownvote(req, res) {
+    try {
+      await Post.unDownvote(req.body.recipeID, req.session.user._id);
+      await UserModel.unDownvoteRecipe(req.body.recipeID, req.session.user._id);
+      res.status(200).json(
+        { message: "downvote removido com sucesso"}
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getRecipeDetails(req, res) {
+    try {
+      const recipeDetais = await UserModel.getDetails(req.session.user._id);
+      
+      res.status(200).json(recipeDetais);
     } catch (error) {
       console.log(error);
     }
