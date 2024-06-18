@@ -13,6 +13,10 @@ const upload = multer(multerConfig);
 router.post("/:id/recipe-submit", loginRequired, upload.single('recipeImage'), recipeController.store);
 router.post("/save", loginRequired, recipeController.save);
 router.post("/unsave", loginRequired, recipeController.unsave);
-router.get("/getSavedRecipes", loginRequired, recipeController.getSavedRecipes);
+router.post("/upvote", loginRequired, recipeController.upvote);
+router.post("/unupvote", loginRequired, recipeController.unUpvote);
+router.post("/downvote", loginRequired, recipeController.downvote);
+router.post("/undownvote", loginRequired, recipeController.unDownvote);
+router.get("/getRecipeDetails", loginRequired, recipeController.getRecipeDetails);
 
 export default router;

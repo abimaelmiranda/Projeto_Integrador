@@ -154,83 +154,302 @@ var PostValidation = /*#__PURE__*/function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RecipeManager)
+/* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw new Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw new Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
-document.addEventListener("DOMContentLoaded", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-  var response, savedRecipes, recipeIDInputs;
-  return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-    while (1) switch (_context2.prev = _context2.next) {
-      case 0:
-        _context2.prev = 0;
-        _context2.next = 3;
-        return axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/recipes/getSavedRecipes');
-      case 3:
-        response = _context2.sent;
-        savedRecipes = response.data;
-        savedRecipes.savedRecipes.forEach(function (id) {
-          var checkbox = document.getElementById(id);
+var RecipeManager = /*#__PURE__*/function () {
+  function RecipeManager() {
+    _classCallCheck(this, RecipeManager);
+    this.init();
+  }
+  _createClass(RecipeManager, [{
+    key: "init",
+    value: function () {
+      var _init = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var recipeDetails;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return this.getRecipeDetails();
+            case 3:
+              recipeDetails = _context.sent;
+              this.updateSavedRecipesUI(recipeDetails.savedRecipes);
+              this.updateUpvotesUI(recipeDetails.upvoted);
+              this.updateDownvotesUI(recipeDetails.downvoted);
+              this.addCheckboxListeners();
+              _context.next = 13;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](0);
+              console.error("Erro ao inicializar receitas:", _context.t0);
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, this, [[0, 10]]);
+      }));
+      function init() {
+        return _init.apply(this, arguments);
+      }
+      return init;
+    }()
+  }, {
+    key: "getRecipeDetails",
+    value: function () {
+      var _getRecipeDetails = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0__["default"].get('/recipes/getRecipeDetails');
+            case 3:
+              response = _context2.sent;
+              return _context2.abrupt("return", response.data);
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
+              console.error("Erro ao carregar receitas salvas:", _context2.t0);
+              throw _context2.t0;
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[0, 7]]);
+      }));
+      function getRecipeDetails() {
+        return _getRecipeDetails.apply(this, arguments);
+      }
+      return getRecipeDetails;
+    }()
+  }, {
+    key: "updateSavedRecipesUI",
+    value: function updateSavedRecipesUI(savedRecipes) {
+      savedRecipes.forEach(function (id) {
+        var checkbox = document.getElementById("save-".concat(id));
+        if (checkbox) {
           var icon = checkbox.parentElement.querySelector(".saveRecipeIcon");
-          if (checkbox) {
-            checkbox.checked = true;
-            icon.classList.remove("bi-bookmark");
-            icon.classList.add("bi-bookmark-fill");
+          checkbox.checked = true;
+          icon.classList.remove("bi-bookmark");
+          icon.classList.add("bi-bookmark-fill");
+        }
+      });
+    }
+  }, {
+    key: "updateUpvotesUI",
+    value: function updateUpvotesUI(upvotedRecipes) {
+      upvotedRecipes.forEach(function (id) {
+        var checkbox = document.getElementById("up-".concat(id));
+        if (checkbox) {
+          var icon = checkbox.parentElement.querySelector(".upRecipeIcon");
+          checkbox.checked = true;
+          icon.classList.remove("bi-arrow-up-square");
+          icon.classList.add("bi-arrow-up-square-fill");
+        }
+      });
+    }
+  }, {
+    key: "updateDownvotesUI",
+    value: function updateDownvotesUI(downvotedRecipes) {
+      downvotedRecipes.forEach(function (id) {
+        var checkbox = document.getElementById("down-".concat(id));
+        if (checkbox) {
+          var icon = checkbox.parentElement.querySelector(".downRecipeIcon");
+          checkbox.checked = true;
+          icon.classList.remove("bi-arrow-down-square");
+          icon.classList.add("bi-arrow-down-square-fill");
+        }
+      });
+    }
+  }, {
+    key: "addCheckboxListeners",
+    value: function addCheckboxListeners() {
+      var _this = this;
+      var buttons = document.querySelectorAll("input[type=checkbox]");
+      if (buttons) {
+        buttons.forEach(function (button) {
+          if (button.classList.contains("saveRecipeButton")) {
+            button.addEventListener("click", function () {
+              return _this.handleSave(button);
+            });
+          } else if (button.classList.contains("upRecipeButton")) {
+            button.addEventListener("click", function () {
+              return _this.handleVote(button, 'up');
+            });
+          } else if (button.classList.contains("downRecipeButton")) {
+            button.addEventListener("click", function () {
+              return _this.handleVote(button, 'down');
+            });
           }
         });
-        _context2.next = 11;
-        break;
-      case 8:
-        _context2.prev = 8;
-        _context2.t0 = _context2["catch"](0);
-        console.error("Erro ao carregar receitas salvas:", _context2.t0);
-      case 11:
-        recipeIDInputs = document.querySelectorAll("input[type=checkbox]");
-        if (recipeIDInputs) {
-          recipeIDInputs.forEach(function (recipeIDInput) {
-            recipeIDInput.addEventListener("click", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-              var csrf, endpoint, payload, _response;
-              return _regeneratorRuntime().wrap(function _callee$(_context) {
-                while (1) switch (_context.prev = _context.next) {
-                  case 0:
-                    csrf = recipeIDInput.closest(".content-box").querySelector("input[name=_csrf]").value;
-                    endpoint = recipeIDInput.checked ? "/recipes/save" : "/recipes/unsave";
-                    payload = {
-                      recipeID: recipeIDInput.id,
-                      _csrf: csrf
-                    };
-                    _context.prev = 3;
-                    _context.next = 6;
-                    return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(endpoint, payload);
-                  case 6:
-                    _response = _context.sent;
-                    console.log(_response.data.message);
-                    _context.next = 13;
-                    break;
-                  case 10:
-                    _context.prev = 10;
-                    _context.t0 = _context["catch"](3);
-                    if (_context.t0.response && _context.t0.response.status === 401) {
-                      window.location.href = "/login";
-                    } else {
-                      console.error("Erro ao ".concat(recipeIDInput.checked ? "salvar" : "remover", " receita:"), _context.t0);
-                    }
-                  case 13:
-                  case "end":
-                    return _context.stop();
-                }
-              }, _callee, null, [[3, 10]]);
-            })));
-          });
-        }
-      case 13:
-      case "end":
-        return _context2.stop();
+      }
     }
-  }, _callee2, null, [[0, 8]]);
-})));
+  }, {
+    key: "handleSave",
+    value: function () {
+      var _handleSave = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(saveButton) {
+        var csrf, endpoint, recipeID, payload, response;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              csrf = saveButton.closest(".content-box").querySelector("input[name=_csrf]").value;
+              endpoint = saveButton.checked ? "/recipes/save" : "/recipes/unsave";
+              recipeID = saveButton.closest(".content-box").getAttribute("id");
+              payload = {
+                recipeID: recipeID,
+                _csrf: csrf
+              };
+              _context3.prev = 4;
+              _context3.next = 7;
+              return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(endpoint, payload);
+            case 7:
+              response = _context3.sent;
+              console.log(response.data.message);
+              this.updateSaveUI(saveButton, saveButton.checked);
+              _context3.next = 15;
+              break;
+            case 12:
+              _context3.prev = 12;
+              _context3.t0 = _context3["catch"](4);
+              this.handleSaveError(_context3.t0, saveButton.checked);
+            case 15:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3, this, [[4, 12]]);
+      }));
+      function handleSave(_x) {
+        return _handleSave.apply(this, arguments);
+      }
+      return handleSave;
+    }()
+  }, {
+    key: "handleVote",
+    value: function () {
+      var _handleVote = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(button, type) {
+        var endpoint, recipeID, payload, response;
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              endpoint = button.checked ? "/recipes/".concat(type, "vote") : "/recipes/un".concat(type, "vote");
+              recipeID = this.getRecipeID(button);
+              payload = {
+                recipeID: recipeID,
+                _csrf: this.getCsrfToken(button)
+              };
+              _context4.prev = 3;
+              _context4.next = 6;
+              return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(endpoint, payload);
+            case 6:
+              response = _context4.sent;
+              console.log(response.data.message);
+              this.updateVoteUI(button, ".".concat(type, "RecipeIcon"), button.checked);
+              _context4.next = 14;
+              break;
+            case 11:
+              _context4.prev = 11;
+              _context4.t0 = _context4["catch"](3);
+              this.handleError(_context4.t0, button.checked ? "".concat(type, "votar") : "des".concat(type, "votar"));
+            case 14:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4, this, [[3, 11]]);
+      }));
+      function handleVote(_x2, _x3) {
+        return _handleVote.apply(this, arguments);
+      }
+      return handleVote;
+    }()
+  }, {
+    key: "handleSaveError",
+    value: function handleSaveError(error, isChecked) {
+      if (error.response && error.response.status === 401) {
+        window.location.href = "/login";
+      } else {
+        console.error("Erro ao ".concat(isChecked ? "salvar" : "remover", " receita:"), error);
+      }
+    }
+  }, {
+    key: "handleError",
+    value: function handleError(error, action) {
+      if (error.response && error.response.status === 401) {
+        window.location.href = "/login";
+      } else {
+        console.error("Erro ao ".concat(action, " receita:"), error);
+      }
+    }
+  }, {
+    key: "updateSaveUI",
+    value: function updateSaveUI(checkbox, isChecked) {
+      var icon = checkbox.parentElement.querySelector(".saveRecipeIcon");
+      if (isChecked) {
+        icon.classList.remove("bi-bookmark");
+        icon.classList.add("bi-bookmark-fill");
+      } else {
+        icon.classList.remove("bi-bookmark-fill");
+        icon.classList.add("bi-bookmark");
+      }
+    }
+  }, {
+    key: "updateVoteUI",
+    value: function updateVoteUI(checkbox, isChecked) {
+      if (checkbox.classList.contains("upRecipeButton")) this.upvoteUI(checkbox);
+      if (checkbox.classList.contains("downRecipeButton")) this.downvoteUI(checkbox);
+    }
+  }, {
+    key: "upvoteUI",
+    value: function upvoteUI(checkbox) {
+      var icon = checkbox.parentElement.querySelector(".upRecipeIcon");
+      if (checkbox.checked) {
+        icon.classList.remove("bi-arrow-up-square");
+        icon.classList.add("bi-arrow-up-square-fill");
+      } else {
+        icon.classList.remove("bi-arrow-up-square-fill");
+        icon.classList.add("bi-arrow-up-square");
+      }
+    }
+  }, {
+    key: "downvoteUI",
+    value: function downvoteUI(checkbox) {
+      var icon = checkbox.parentElement.querySelector(".downRecipeIcon");
+      if (checkbox.checked) {
+        icon.classList.remove("bi-arrow-down-square");
+        icon.classList.add("bi-arrow-down-square-fill");
+      } else {
+        icon.classList.remove("bi-arrow-down-square-fill");
+        icon.classList.add("bi-arrow-down-square");
+      }
+    }
+  }, {
+    key: "getRecipeID",
+    value: function getRecipeID(element) {
+      return element.closest(".content-box").getAttribute("id");
+    }
+  }, {
+    key: "getCsrfToken",
+    value: function getCsrfToken(element) {
+      return element.closest(".content-box").querySelector("input[name=_csrf]").value;
+    }
+  }]);
+  return RecipeManager;
+}();
+
 
 /***/ }),
 
@@ -263,15 +482,8 @@ window.addEventListener("DOMContentLoaded", function () {
     mainContainer.addEventListener("click", closeMenu);
   }
   window.addEventListener("scroll", function () {
-    fixarFooter();
-    fixarHeader();
-  });
-  document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("saveRecipeButton")) {
-      var checkbox = event.target;
-      var icon = checkbox.parentElement.querySelector(".saveRecipeIcon");
-      toggleSave(checkbox, icon);
-    }
+    stickyFooter();
+    stickyHeader();
   });
   function toggleMenu() {
     var navegationHeader = document.getElementById("header-nav-menu");
@@ -291,19 +503,10 @@ window.addEventListener("DOMContentLoaded", function () {
   function closeMenu() {
     if (showMenu) toggleMenu();
   }
-  function toggleSave(checkbox, icon) {
-    if (!checkbox.checked) {
-      icon.classList.remove('bi-bookmark-fill');
-      icon.classList.add('bi-bookmark');
-    } else {
-      icon.classList.remove('bi-bookmark');
-      icon.classList.add('bi-bookmark-fill');
-    }
-  }
-  function fixarFooter() {
+  function stickyFooter() {
     footer.classList.toggle("stickyFoot", window.scrollY >= footer.offsetTop + footer.offsetHeight);
   }
-  function fixarHeader() {
+  function stickyHeader() {
     header.classList.toggle("sticky", window.scrollY > header.offsetTop);
   }
 });
@@ -26660,9 +26863,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_recipes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/recipes.js */ "./frontend/assets/modules/recipes.js");
-/* harmony import */ var _modules_script_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/script.js */ "./frontend/assets/modules/script.js");
-/* harmony import */ var _modules_script_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_script_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_script_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/script.js */ "./frontend/assets/modules/script.js");
+/* harmony import */ var _modules_script_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_script_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_recipes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/recipes.js */ "./frontend/assets/modules/recipes.js");
 /* harmony import */ var _modules_postValidation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/postValidation.js */ "./frontend/assets/modules/postValidation.js");
 /* harmony import */ var _modules_loginValidation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/loginValidation.js */ "./frontend/assets/modules/loginValidation.js");
 
@@ -26675,6 +26878,9 @@ var postValidation = new _modules_postValidation_js__WEBPACK_IMPORTED_MODULE_4__
 postValidation.init();
 var loginValidation = new _modules_loginValidation_js__WEBPACK_IMPORTED_MODULE_5__["default"]('.form-login');
 loginValidation.init();
+document.addEventListener("DOMContentLoaded", function () {
+  new _modules_recipes_js__WEBPACK_IMPORTED_MODULE_3__["default"]();
+});
 })();
 
 /******/ })()
