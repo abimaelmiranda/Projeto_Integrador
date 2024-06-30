@@ -186,21 +186,30 @@ var RecipeManager = /*#__PURE__*/function () {
               return this.getRecipeDetails();
             case 3:
               recipeDetails = _context.sent;
+              if (recipeDetails) {
+                _context.next = 6;
+                break;
+              }
+              return _context.abrupt("return");
+            case 6:
               this.updateSavedRecipesUI(recipeDetails.savedRecipes);
               this.updateUpvotesUI(recipeDetails.upvoted);
               this.updateDownvotesUI(recipeDetails.downvoted);
-              this.addCheckboxListeners();
-              _context.next = 13;
+              _context.next = 14;
               break;
-            case 10:
-              _context.prev = 10;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
               console.error("Erro ao inicializar receitas:", _context.t0);
-            case 13:
+            case 14:
+              _context.prev = 14;
+              this.addCheckboxListeners();
+              return _context.finish(14);
+            case 17:
             case "end":
               return _context.stop();
           }
-        }, _callee, this, [[0, 10]]);
+        }, _callee, this, [[0, 11, 14, 17]]);
       }));
       function init() {
         return _init.apply(this, arguments);
@@ -225,8 +234,7 @@ var RecipeManager = /*#__PURE__*/function () {
               _context2.prev = 7;
               _context2.t0 = _context2["catch"](0);
               console.error("Erro ao carregar receitas salvas:", _context2.t0);
-              throw _context2.t0;
-            case 11:
+            case 10:
             case "end":
               return _context2.stop();
           }
@@ -319,19 +327,18 @@ var RecipeManager = /*#__PURE__*/function () {
               return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post(endpoint, payload);
             case 7:
               response = _context3.sent;
-              console.log(response.data.message);
               this.updateSaveUI(saveButton, saveButton.checked);
-              _context3.next = 15;
+              _context3.next = 14;
               break;
-            case 12:
-              _context3.prev = 12;
+            case 11:
+              _context3.prev = 11;
               _context3.t0 = _context3["catch"](4);
               this.handleSaveError(_context3.t0, saveButton.checked);
-            case 15:
+            case 14:
             case "end":
               return _context3.stop();
           }
-        }, _callee3, this, [[4, 12]]);
+        }, _callee3, this, [[4, 11]]);
       }));
       function handleSave(_x) {
         return _handleSave.apply(this, arguments);

@@ -8,12 +8,14 @@ export default class RecipeManager {
   async init() {
     try {
       const recipeDetails = await this.getRecipeDetails();
+      if(!recipeDetails) return
       this.updateSavedRecipesUI(recipeDetails.savedRecipes);
       this.updateUpvotesUI(recipeDetails.upvoted);
       this.updateDownvotesUI(recipeDetails.downvoted);
-      this.addCheckboxListeners();
     } catch (error) {
       console.error("Erro ao inicializar receitas:", error);
+    }finally{
+      this.addCheckboxListeners();
     }
   }
 
@@ -23,7 +25,6 @@ export default class RecipeManager {
       return response.data;
     } catch (error) {
       console.error("Erro ao carregar receitas salvas:", error);
-      throw error;
     }
   }
 
@@ -86,7 +87,6 @@ export default class RecipeManager {
 
     try {
       const response = await axios.post(endpoint, payload);
-      console.log(response.data.message);
       this.updateSaveUI(saveButton, saveButton.checked);
     } catch (error) {
       this.handleSaveError(error, saveButton.checked);

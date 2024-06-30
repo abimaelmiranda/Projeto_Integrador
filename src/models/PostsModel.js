@@ -73,6 +73,19 @@ class Post {
     return author;
   }
 
+  static async postSearch(query, page = 1, limit = 10) {
+    try {
+      const posts = await PostModel.find({ recipeTitle: new RegExp(query, 'i')})
+      .sort({ createdIn: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit);
+      if (!posts) return this.errors.push("Nenhum post encontrado");
+      return posts;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   static async homeSearch() {
     try {
       const posts = await PostModel.find().sort({ createdIn: -1 });
