@@ -1,0 +1,30 @@
+<%- include('./includes/head') %>
+<%- include('./includes/header') %>
+<body>
+    <span id="anchor"></span>
+    <main id="main">
+        <div class="main-content-container">
+            <section class="main-section">
+                <h1 class="title">Exibindo resultados para "<%= query %>"</h1>
+                <div class="post-list-container">
+                    <% recipes.forEach(recipe => { %>   
+                    <div class="post-content">
+                        <div class="post-content-header">
+                            <h2 class="post-title"><%= recipe.recipeTitle %></h2>
+                            <a class="post-author" href="#">por vitor</a>
+                            <p><%= recipe.shortDescription %></p>
+                        </div>
+                        <div class="post-img-container">
+                            <img src="uploads/<%= recipe.recipeImage %>" alt="">
+                        </div>
+                        <div class="post-content-footer"></div>
+                    </div>
+                   <% }); %>
+                </div>
+            </section>
+        </div>
+        <a><span id="anchor-top"></span></a>
+    </main>
+    <script type="text/javascript" src="assets/js/bundle.js"></script>
+</body>
+</html>

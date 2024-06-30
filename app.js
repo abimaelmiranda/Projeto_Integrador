@@ -18,6 +18,7 @@ import signinRoutes from './src/routes/signin.js';
 import explorerRoutes from './src/routes/explorer.js';
 import kitchenRoutes from './src/routes/kitchen.js';
 import recipeRoutes from './src/routes/recipe.js';
+import searchRoutes from './src/routes/search.js';
 
 class App {
     constructor() {
@@ -64,6 +65,7 @@ class App {
         this.app.use('/signin', signinRoutes);
         this.app.use('/explorer', explorerRoutes);
         this.app.use('/kitchen', kitchenRoutes);
+        this.app.use('/search', searchRoutes);
         this.app.use('/recipes', recipeRoutes);
         this.app.use(notFound);
     }
