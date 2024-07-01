@@ -7,197 +7,42 @@
         <div class="main-content-container">
             <section class="main-section">
                 <h1 class="title">Explorar</h1>
-                <form class="filter-container" action="#">
+                <form class="filter-container">
                     <label for="filter">Filtros</label>
-                    <select name="filter" id="filter">
-                        <option value="AZ">A-Z</option>
-                        <option value="recent">Mais Recentes</option>
-                        <option value="bestRate">Melhor Avaliados</option>
+                    <select name="sort" id="filter">
+                        <option value="az" <%= sort === 'az' ? 'selected' : '' %>>A-Z</option>
+                        <option value="recent" <%= sort === 'recent' ? 'selected' : '' %>>Mais Recentes</option>
                     </select >
                 </form>
                 <div class="post-list-container">
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
+                    <% posts.forEach(post => { %>
+                        <div class="post-content" id="<%= post._id %>">
+                            <div class="post-content-header">
+                                <h2 class="post-title"><%= post.recipeTitle %></h2>
+                                <a class="post-author" href="#">por <%= post.author.username %></a>
+                                <p><%= post.shortDescription %></p>
+                            </div>
+                            <div class="post-img-container">
+                                <img src="/uploads/<%= post.recipeImage %>" alt="Imagem de <%= post.recipeTitle %>">
+                            </div>
+                            <div class="post-content-footer"> footer</div>
                         </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                       <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title">Torta de Frango</h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque molestiae deleniti incidunt animi, laborum commodi, iusto repudiandae inventore dicta asperiores eaque.</p>
-                        </div>
-                        <div class="post-img-container">
-                            <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/torta-de-frango-de-liquidificador-receita.jpg" alt="">
-                        </div>
-                        <div class="post-content-footer"> footer</div>
-                    </div>
-                    
+                    <% }); %>                    
                 </div>
+                <nav>
+                    <ul class="pagination">
+                      <% for (let i = 1; i <= totalPages; i++) { %>
+                        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                          <a class="page-link" href="/explorer?sort=<%= sort %>&page=<%= i %>"><%= i %></a>
+                        </li>
+                      <% } %>
+                    </ul>
+                  </nav>
             </section>
         </div>
         <a><span id="anchor-top"></span></a>
     </main>
     <script type="text/javascript" src="assets/js/bundle.js"></script>
+    <script type="text/javascript" src="assets/js/modules/explorer.js"></script>
 </body>
 </html>

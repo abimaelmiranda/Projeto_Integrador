@@ -5,22 +5,26 @@
     <main id="main">
         <div class="main-content-container">
             <section class="main-section">
-                <h1 class="title">Exibindo resultados para "<%= query %>"</h1>
-                <div class="post-list-container">
-                    <% recipes.forEach(recipe => { %>   
-                    <div class="post-content">
-                        <div class="post-content-header">
-                            <h2 class="post-title"><%= recipe.recipeTitle %></h2>
-                            <a class="post-author" href="#">por vitor</a>
-                            <p><%= recipe.shortDescription %></p>
+                <% if (recipes === "no-results") { %>
+                    <h1 class="title">Sem resultados para "<%= query %>"</h1>
+                <% } else { %>
+                    <h1 class="title">Exibindo resultados para "<%= query %>"</h1>
+                    <div class="post-list-container">
+                        <% recipes.forEach(recipe => { %>   
+                        <div class="post-content">
+                            <div class="post-content-header">
+                                <h2 class="post-title"><%= recipe.recipeTitle %></h2>
+                                <a class="post-author" href="#">por <%= recipe.author.username %></a>
+                                <p><%= recipe.shortDescription %></p>
+                            </div>
+                            <div class="post-img-container">
+                                <img src="uploads/<%= recipe.recipeImage %>" alt="">
+                            </div>
+                            <div class="post-content-footer"></div>
                         </div>
-                        <div class="post-img-container">
-                            <img src="uploads/<%= recipe.recipeImage %>" alt="">
-                        </div>
-                        <div class="post-content-footer"></div>
+                       <% }); %>
                     </div>
-                   <% }); %>
-                </div>
+                <% } %>
             </section>
         </div>
         <a><span id="anchor-top"></span></a>

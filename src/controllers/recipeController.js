@@ -1,5 +1,5 @@
 import UserModel from"../models/UserModel";
-import Post from "../models/PostsModel";
+import { Post } from "../models/PostsModel";
 
 class RecipeController {
 
