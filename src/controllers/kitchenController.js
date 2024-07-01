@@ -1,4 +1,4 @@
-import Post from "../models/PostsModel";
+import { Post } from "../models/PostsModel";
 class KitchenController {
   index(req, res){
     res.render('kitchen', { currentPage: 'kitchen' })

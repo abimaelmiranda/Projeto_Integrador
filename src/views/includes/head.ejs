@@ -39,8 +39,20 @@
         <link rel="stylesheet" href="/assets/css/explorer-style.css" media="all">
         <link rel="stylesheet" href="/assets/css/media-queries/explorer-style-mq-768.css" media="screen and (max-width: 768px)">
         <link rel="stylesheet" href="/assets/css/media-queries/explorer-style-mq-468.css" media="screen and (max-width: 468px)">
+    
+    <% } %>
+
+    <% if(currentPage === 'explorer') { %>
+
+        <link rel="stylesheet" href="/assets/css/explorer-style.css" media="all">
+        <link rel="stylesheet" href="/assets/css/media-queries/explorer-style-mq-768.css" media="screen and (max-width: 768px)">
+        <link rel="stylesheet" href="/assets/css/media-queries/explorer-style-mq-468.css" media="screen and (max-width: 468px)">
         <title>Explorar - Nossa Cozinha</title>
     
+    <% } %>
+
+    <% if(currentPage === 'search') { %>
+        <title>Busca - Nossa Cozinha</title>
     <% } %>
 
     <% if(currentPage === 'kitchen') { %>

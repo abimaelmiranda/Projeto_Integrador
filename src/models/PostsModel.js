@@ -16,7 +16,7 @@ const PostsSchema = new mongoose.Schema({
 
 const PostModel = mongoose.model("post", PostsSchema);
 
-class Post {
+export class Post {
   constructor(body, req) {
     this.body = body;
     this.author = req.session.user._id;
@@ -35,10 +35,6 @@ class Post {
   validate() {
     this.cleanUp();
 
-    // if (!this.validateArrayOfStrings(this.body.ingredientsArray)) {
-    //   this.errors.push('Erro! Verifique se os ingredientes foram adicionados corretamente separados por linha!');
-    // }
-
     if (this.body.recipeTitle.length < 3) {
       this.errors.push("Título inválido!");
     }
@@ -56,13 +52,6 @@ class Post {
     }
   }
 
-  validateArrayOfStrings(value) {
-    if (!Array.isArray(value)) {
-      return false;
-    }
-    return value.every((item) => typeof item === "string");
-  }
-
   async searchMyRecipes() {
     const author = await PostModel.find({ author: this.author }).sort({
       createdIn: -1,
@@ -76,10 +65,11 @@ class Post {
   static async postSearch(query, page = 1, limit = 10) {
     try {
       const posts = await PostModel.find({ recipeTitle: new RegExp(query, 'i')})
+      .populate('author', 'username')
       .sort({ createdIn: -1 })
       .skip((page - 1) * limit)
       .limit(limit);
-      if (!posts) return this.errors.push("Nenhum post encontrado");
+      if (posts.length === 0) return this.errors.push("Nenhum post encontrado");
       return posts;
     } catch (err) {
       console.log(err);
@@ -210,5 +200,4 @@ class Post {
   }
 }
 
-module.exports = Post;
-
+export default PostModel;
