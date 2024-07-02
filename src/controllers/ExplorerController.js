@@ -19,7 +19,7 @@ class ExplorerController {
             const posts = await PostModel.find()
               .populate('author', 'username')
               .sort(sortOption)
-              .skip((page - 1) * 10)
+              .skip((page - 1) * 1)
               .limit(10);
       
             if (posts.length === 0) {

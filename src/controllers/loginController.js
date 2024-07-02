@@ -1,4 +1,4 @@
-const Login = require("../models/LoginModel");
+import { Login } from "../models/LoginModel";
 
 class LoginController {
   index(req, res){
@@ -14,7 +14,7 @@ class LoginController {
     if (login.errors.length > 0) {
       req.flash("errors", login.errors);
       req.session.save(() => {
-        return res.redirect("/login");
+        return res.status(400).json({error: true})
       });
       return;
     }
