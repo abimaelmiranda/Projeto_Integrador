@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs'
 
 const LoginSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -11,7 +11,7 @@ const LoginSchema = new mongoose.Schema({
 
 const LoginModel = mongoose.model('login', LoginSchema, 'users');
 
-class Login {
+export class Login {
   constructor(body) {
     this.body = body;
     this.errors = [];
@@ -57,4 +57,4 @@ class Login {
 
 }
 
-module.exports = Login;
+export default LoginModel;

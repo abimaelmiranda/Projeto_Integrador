@@ -148,7 +148,29 @@ select:focus{
     background-color: var(--cor3);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    
+    height: 1.3vh;
+}
+
+.pagination-container{
+    display: flex;
+    height: 5vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-container ul{
+    display: flex;
+    list-style-type: none;
+    column-gap: 10px;
+    text-decoration: underline;
+    font-size: 20px;
+    color: var(--cor4);
+}
+
+.pagination-container ul a{
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--cor4);
 }
 
 #anchor-top{

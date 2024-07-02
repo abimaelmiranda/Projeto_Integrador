@@ -61,9 +61,12 @@ var LoginValidation = /*#__PURE__*/function () {
                 _csrf: csrf
               }).then(function (response) {
                 var userId = response.data.userId;
-                window.location.href = "/kitchen/".concat(userId);
-              })["catch"](function (e) {
-                console.log(e);
+                console.log(response.data);
+                if (userId) window.location.href = "/kitchen/".concat(userId);
+              })["catch"](function (error) {
+                if (error.response.status === 400) {
+                  window.location.reload(true);
+                }
               });
             case 5:
             case "end":
