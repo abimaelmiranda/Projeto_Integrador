@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   savedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
 });
 
-const UserModel = mongoose.model("users", UserSchema);
+export const UserModel = mongoose.model("users", UserSchema);
 
 class User {
   constructor(body) {
@@ -185,4 +185,4 @@ class User {
   }
 }
 
-module.exports = User;
+export default User;

@@ -14,7 +14,7 @@ const PostsSchema = new mongoose.Schema({
   createdIn: { type: Date, default: Date.now() },
 });
 
-const PostModel = mongoose.model("post", PostsSchema);
+export const PostModel = mongoose.model("post", PostsSchema);
 
 export class Post {
   constructor(body, req) {
@@ -73,6 +73,16 @@ export class Post {
       return posts;
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  static async getPostbyId(postId) {
+    try {
+      const post = await PostModel.findById(postId);
+      if (!post) return this.errors.push("Nenhum post encontrado");
+      return post;
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -200,4 +210,6 @@ export class Post {
   }
 }
 
-export default PostModel;
+
+
+export default Post;
