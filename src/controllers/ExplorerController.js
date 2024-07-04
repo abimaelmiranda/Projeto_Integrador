@@ -1,4 +1,4 @@
-import PostModel from "../models/PostsModel";
+import { PostModel } from "../models/PostsModel";
 
 class ExplorerController {
     async index(req, res){
