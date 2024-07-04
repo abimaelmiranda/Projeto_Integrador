@@ -1,5 +1,5 @@
 import UserModel from"../models/UserModel";
-import { Post } from "../models/PostsModel";
+import { Post, PostModel } from "../models/PostsModel";
 
 class RecipeController {
 
@@ -25,6 +25,20 @@ class RecipeController {
       res.render("404", { currentPage: "404" });
       console.log(e);
     }  
+  }
+
+  async show(req, res){
+    try {
+      if(!req.query.post) res.render("404", { currentPage: "404" });
+      const post = await PostModel.findById(req.query.post);
+      if (!post) {
+        throw new Error(`${post.errors}`);
+      }
+
+      res.render("recipe", { currentPage: "recipe", post });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async save(req, res) {
@@ -100,7 +114,6 @@ class RecipeController {
   async getRecipeDetails(req, res) {
     try {
       const recipeDetais = await UserModel.getDetails(req.session.user._id);
-      
       res.status(200).json(recipeDetais);
     } catch (error) {
       console.log(error);

@@ -9,8 +9,9 @@ const router = Router();
 
 const upload = multer(multerConfig);
 
-
+router.get("/", recipeController.show);
 router.post("/:id/recipe-submit", loginRequired, upload.single('recipeImage'), recipeController.store);
+router.post("/save", loginRequired, recipeController.save);
 router.post("/save", loginRequired, recipeController.save);
 router.post("/unsave", loginRequired, recipeController.unsave);
 router.post("/upvote", loginRequired, recipeController.upvote);
