@@ -16,17 +16,17 @@
                 </form>
                 <div class="post-list-container">
                     <% posts.forEach(post => { %>
-                        <div class="post-content" id="<%= post._id %>">
-                            <div class="post-content-header">
-                                <h2 class="post-title"><%= post.recipeTitle %></h2>
-                                <a class="post-author" href="#">por <%= post.author.username %></a>
-                                <p class="post-description"><%= post.shortDescription %></p>
-                            </div>
-                            <div class="post-img-container">
-                                <img src="/uploads/<%= post.recipeImage %>" alt="Imagem de <%= post.recipeTitle %>">
-                            </div>
-                            <div class="post-content-footer"></div>
-                        </div>
+                          <div class="post-content" id="<%= post._id %>">
+                              <div class="post-content-header">
+                                  <h2 class="post-title"><%= post.recipeTitle %></h2>
+                                  <a class="post-author" href="#">por <%= post.author.username %></a>
+                                  <p><%= post.shortDescription %></p>
+                              </div>
+                              <div class="post-img-container">
+                                  <img src="/uploads/<%= post.recipeImage %>" alt="Imagem de <%= post.recipeTitle %>">
+                              </div>
+                              <div class="post-content-footer"></div>
+                          </div>
                     <% }); %>                    
                 </div>
                 <nav class="pagination-container">
