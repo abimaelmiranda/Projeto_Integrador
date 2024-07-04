@@ -2,13 +2,13 @@
 <%- include('./includes/head') %>
 <body>
     <main class="signin-screen-container">
-        <a href="/"><img class="voltar-button" src="assets/images/seta-voltar.jpg" alt=""></a>
+        
         <div class="signin-screen">
             <h1 class="signin-title">Cadastre-se</h1>
 
             <%- include('./includes/messages')  %>
             
-            <form action="/signin" method="POST">
+            <form class="signin-form" action="/signin" method="POST">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <fieldset>
                     <input class="input-field" name="name" type="text"  placeholder="Nome" required>
@@ -28,5 +28,6 @@
             <a class="already-acount" href="login">Já possui uma conta?</a>
         </div>
     </main>
+    <a class="voltar-button" href="/"><img class="voltar-button-img" src="assets/images/seta-voltar.jpg" alt=""></a>
 </body>
 </html>
