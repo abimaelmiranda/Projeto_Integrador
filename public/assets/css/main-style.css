@@ -107,11 +107,13 @@
 .content-box-footer{
     margin-top: 8px ;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     background-color: var(--cor4);
     text-align: center;
     border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 label{
@@ -119,6 +121,10 @@ label{
     box-sizing: border-box;
     width: 50px;
     height: 50px;
+}
+
+label:hover{
+    cursor: pointer;
 }
 
 label input{
@@ -137,7 +143,7 @@ label span{
 
 label i{
     color: white;
-    font-size: 2.3em;
+    font-size: 2.4em;
     transition: 0.5s;
 }
 

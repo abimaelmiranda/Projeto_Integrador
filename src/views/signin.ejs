@@ -8,7 +8,7 @@
 
             <%- include('./includes/messages')  %>
             
-            <form action="/signin/submit" method="POST">
+            <form action="/signin" method="POST">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <fieldset>
                     <input class="input-field" name="name" type="text"  placeholder="Nome" required>

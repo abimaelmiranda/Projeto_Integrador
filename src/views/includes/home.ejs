@@ -4,8 +4,8 @@
         <div class="main-content-container">
             <section id="main-section" class="main-section">
                 <h2>O que vamos cozinhar hoje?</h2>
-                <form action="#">
-                    <input class="search-field" name="search" type="search" placeholder="Ex: Bolo de rolo...">
+                <form id="searchForm" action="/search" method="GET">
+                    <input class="search-field" name="query" type="search" placeholder="Ex: Bolo de rolo...">
                     <button class="search-button" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -15,12 +15,26 @@
             </section>
 
             <% posts.forEach(post => { %>
-                <section class="content-box">
+                <section class="content-box" id="<%= post._id %>">
                     <h2><%= post.recipeTitle %></h2>
                     <p><%= post.shortDescription %></p>
                     <span class="content-box-footer">
-                        <label for="<%= post._id %>" tabindex="-1">
-                            <input type="checkbox" id="<%= post._id %>" class="saveRecipeButton" tabindex="-1">
+                        <label for="up-<%= post._id %>" tabindex="-1">
+                            <input type="checkbox" id="up-<%= post._id %>" class="upRecipeButton" tabindex="-1">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <span> 
+                                <i class="bi bi-arrow-up-square upRecipeIcon" tabindex="-1"></i>
+                            </span>
+                        </label>
+                        <label for="down-<%= post._id %>" tabindex="-1">
+                            <input type="checkbox" id="down-<%= post._id %>" class="downRecipeButton" tabindex="-1">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <span> 
+                                <i class="bi bi-arrow-down-square downRecipeIcon" tabindex="-1"></i>
+                            </span>
+                        </label>
+                        <label for="save-<%= post._id %>" tabindex="-1">
+                            <input type="checkbox" id="save-<%= post._id %>" class="saveRecipeButton" tabindex="-1">
                             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                             <span> 
                                 <i class="bi bi-bookmark saveRecipeIcon" tabindex="-1"></i>
