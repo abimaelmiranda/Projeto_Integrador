@@ -119,6 +119,10 @@ select:focus{
     grid-column-end: 5;
 }
 
+.post-description{
+    overflow-y: hidden;
+}
+
 .post-content p{
     grid-row-start: 4;
     grid-row-end: 12;
