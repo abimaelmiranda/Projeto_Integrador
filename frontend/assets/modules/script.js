@@ -24,21 +24,11 @@ window.addEventListener("DOMContentLoaded", () => {
     mainContainer.addEventListener("click", closeMenu);
   }
 
-  
-
   window.addEventListener("scroll", () => {
-    fixarFooter();
-    fixarHeader();
+    stickyFooter();
+    stickyHeader();
   });
 
-  document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("saveRecipeButton")) {
-      const checkbox = event.target;
-      const icon = checkbox.parentElement.querySelector(".saveRecipeIcon");
-      toggleSave(checkbox, icon);
-    }
-  });
-  
   function toggleMenu() {
     const navegationHeader = document.getElementById("header-nav-menu");
     const acnhor = document.getElementById("anchor-top");
@@ -59,25 +49,14 @@ window.addEventListener("DOMContentLoaded", () => {
     if (showMenu) toggleMenu();
   }
 
-  function toggleSave(checkbox, icon) {
-    if(!checkbox.checked){
-      icon.classList.remove('bi-bookmark-fill');
-      icon.classList.add('bi-bookmark')
-    }else{
-      icon.classList.remove('bi-bookmark');
-      icon.classList.add('bi-bookmark-fill')
-    } 
-
-  }
-
-  function fixarFooter() {
+  function stickyFooter() {
     footer.classList.toggle(
       "stickyFoot",
       window.scrollY >= footer.offsetTop + footer.offsetHeight
     );
   }
 
-  function fixarHeader() {
+  function stickyHeader() {
     header.classList.toggle("sticky", window.scrollY > header.offsetTop);
   }
 });

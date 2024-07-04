@@ -5,7 +5,7 @@
             <h1 class="titlePage"> Olá <%= user.name %></h1>
             <main class='main-content-container'>
                 <section class="share-recepie-container">
-                    <form action="/kitchen/:id/recipe-submit" class="recipe-form" method="post">
+                    <form action="/recipes/:id/recipe-submit/?_csrf=<%=csrfToken%>" class="recipe-form" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <h2 class="title">Compartilhe sua receita!</h2>
                         <%- include('includes/messages')  %>
@@ -14,6 +14,7 @@
                             <textarea type="text" name="shortDescription" placeholder="Uma breve descrição de sua receita" class="input-field shortDescription" rows="3"></textarea>
                             <textarea type="text" name="ingredients" placeholder="Ingredientes (adicione uma linha para cada ingrediente)" class="input-field ingredients" rows="4"></textarea>
                             <textarea type="text" name="preparationMethod" placeholder="Modo de preparo" class="input-field preparationMethod"></textarea>
+                            <input type="file" name="recipeImage" class="imageFile" accept="image/*">
                             <input type="hidden" class="ingredientsArray" name="ingredientsArray" value="">
                         </fieldset>
                         <button class="submit-button" type="submit">Compartilhar</button>

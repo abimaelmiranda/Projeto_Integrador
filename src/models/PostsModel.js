@@ -5,18 +5,22 @@ const PostsSchema = new mongoose.Schema({
   shortDescription: { type: String, required: true },
   ingredientsArray: { type: [String], required: true },
   preparationMethod: { type: String, required: true },
-  createdIn: { type: Date, default: Date.now() },
-  author: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
   upvotes: { type: Number, default: 0 },
   downvotes: { type: Number, default: 0 },
+  upvotedBy: { type: [mongoose.Schema.Types.ObjectId], ref: "users" },
+  downvotedBy: { type: [mongoose.Schema.Types.ObjectId], ref: "users" },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  recipeImage: { type: String },
+  createdIn: { type: Date, default: Date.now() },
 });
 
 const PostModel = mongoose.model("post", PostsSchema);
 
-class Post {
+export class Post {
   constructor(body, req) {
     this.body = body;
     this.author = req.session.user._id;
+    this.recipeImage = req.file.filename;
     this.errors = [];
     this.post = null;
   }
@@ -30,10 +34,6 @@ class Post {
 
   validate() {
     this.cleanUp();
-
-    // if (!this.validateArrayOfStrings(this.body.ingredientsArray)) {
-    //   this.errors.push('Erro! Verifique se os ingredientes foram adicionados corretamente separados por linha!');
-    // }
 
     if (this.body.recipeTitle.length < 3) {
       this.errors.push("Título inválido!");
@@ -52,13 +52,6 @@ class Post {
     }
   }
 
-  validateArrayOfStrings(value) {
-    if (!Array.isArray(value)) {
-      return false;
-    }
-    return value.every((item) => typeof item === "string");
-  }
-
   async searchMyRecipes() {
     const author = await PostModel.find({ author: this.author }).sort({
       createdIn: -1,
@@ -69,6 +62,20 @@ class Post {
     return author;
   }
 
+  static async postSearch(query, page = 1, limit = 10) {
+    try {
+      const posts = await PostModel.find({ recipeTitle: new RegExp(query, 'i')})
+      .populate('author', 'username')
+      .sort({ createdIn: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit);
+      if (posts.length === 0) return this.errors.push("Nenhum post encontrado");
+      return posts;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   static async homeSearch() {
     try {
       const posts = await PostModel.find().sort({ createdIn: -1 });
@@ -76,6 +83,101 @@ class Post {
       return posts;
     } catch (e) {
       console.log(e);
+    }
+  }
+
+  static async upvote(recipeId, userId) {
+    try {
+      const post = await PostModel.findById(recipeId);
+
+      if (!post) return this.errors.push("Nenhum post encontrado");
+
+      if(post.upvotedBy.includes(userId)) {
+        await this.unUpvote(recipeId, userId);
+        return;
+      }
+
+      const postUpdated = await PostModel.findByIdAndUpdate(
+        recipeId,
+        { 
+          $inc: { upvotes: 1 },
+          $push: { upvotedBy: userId } 
+        },
+        { new: true }
+      );
+      return postUpdated;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  static async unUpvote(recipeId, userId) {
+    try {
+      const post = await PostModel.findById(recipeId);
+
+      if (!post) return this.errors.push("Nenhum post encontrado");
+
+      if(post.upvotedBy.includes(userId)) {
+        const postUpdated = await PostModel.findByIdAndUpdate(
+          recipeId,
+          { 
+            $inc: { upvotes: -1 },
+            $pull: { upvotedBy: userId } 
+          },
+          { new: true }
+        );
+        return postUpdated;
+      }
+      return
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async downvote(recipeId, userId) {
+    try {
+      const post = await PostModel.findById(recipeId);
+
+      if (!post) return this.errors.push("Nenhum post encontrado");
+
+      if(post.downvotedBy.includes(userId)) {
+        await this.unDownvote(recipeId, userId);
+        return;
+      }
+
+      const postUpdated = await PostModel.findByIdAndUpdate(
+        recipeId,
+        { 
+          $inc: { downvotes: 1 },
+          $push: { downvotedBy: userId } 
+        },
+        { new: true }
+      );
+      return postUpdated;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  static async unDownvote(recipeId, userId) {
+    try {
+      const post = await PostModel.findById(recipeId);
+
+      if (!post) return this.errors.push("Nenhum post encontrado");
+
+      if(post.downvotedBy.includes(userId)) {
+        const postUpdated = await PostModel.findByIdAndUpdate(
+          recipeId,
+          { 
+            $inc: { downvotes: -1 },
+            $pull: { downvotedBy: userId } 
+          },
+          { new: true }
+        );
+        return postUpdated;
+      }
+      return
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -91,12 +193,11 @@ class Post {
       shortDescription: this.body.shortDescription,
       ingredientsArray: this.body.ingredientsArray,
       preparationMethod: this.body.preparationMethod,
-      createdIn: this.body.createdIn,
-      isSaved: this.body.isSaved,
       author: this.author,
+      recipeImage: this.recipeImage,
+      createdIn: this.body.createdIn,
     };
   }
 }
 
-module.exports = Post;
-
+export default PostModel;
