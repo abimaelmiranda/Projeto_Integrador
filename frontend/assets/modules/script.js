@@ -59,4 +59,21 @@ window.addEventListener("DOMContentLoaded", () => {
   function stickyHeader() {
     header.classList.toggle("sticky", window.scrollY > header.offsetTop);
   }
+
+  const posts = document.querySelectorAll('.content-box');
+  posts.forEach(post => {
+      post.addEventListener('click', (e) => {
+          if (!e.target.closest('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .upRecipeIcon, .downRecipeIcon, .saveRecipeIcon')) {
+              const postId = post.id;
+              window.location.href = `/recipes?post=${postId}`;
+          }
+      });
+  });
+
+  const buttons = document.querySelectorAll('.upRecipeButton, .downRecipeButton, .saveRecipeButton');
+  buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+          e.stopPropagation();
+      });
+  });
 });

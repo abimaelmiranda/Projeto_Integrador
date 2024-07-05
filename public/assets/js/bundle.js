@@ -148,8 +148,7 @@ var PostValidation = /*#__PURE__*/function () {
       }
       ingredientsArray.value = JSON.stringify(ingredientsValue);
       if (!error) {
-        // el.submit();
-        console.log(ingredientsValue);
+        el.submit();
       }
     }
   }]);
@@ -529,6 +528,21 @@ window.addEventListener("DOMContentLoaded", function () {
   function stickyHeader() {
     header.classList.toggle("sticky", window.scrollY > header.offsetTop);
   }
+  var posts = document.querySelectorAll('.content-box');
+  posts.forEach(function (post) {
+    post.addEventListener('click', function (e) {
+      if (!e.target.closest('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .upRecipeIcon, .downRecipeIcon, .saveRecipeIcon')) {
+        var postId = post.id;
+        window.location.href = "/recipes?post=".concat(postId);
+      }
+    });
+  });
+  var buttons = document.querySelectorAll('.upRecipeButton, .downRecipeButton, .saveRecipeButton');
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  });
 });
 
 /***/ }),

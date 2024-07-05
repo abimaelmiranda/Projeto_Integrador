@@ -2,9 +2,9 @@
     <%- include('./includes/header'); %>
 
         <body>
-            <h1 class="titlePage"> Olá <%= user.name %></h1>
             <main class='main-content-container'>
-                <section class="share-recepie-container">
+                <section class="share-recipe-container">
+                    <h1 class="titlePage"> Olá <%= user.name %></h1>
                     <form action="/recipes/:id/recipe-submit/?_csrf=<%=csrfToken%>" class="recipe-form" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <h2 class="title">Compartilhe sua receita!</h2>
@@ -16,17 +16,16 @@
                             <textarea type="text" name="preparationMethod" placeholder="Modo de preparo" class="input-field preparationMethod"></textarea>
                             <input type="file" name="recipeImage" class="imageFile" accept="image/*">
                             <input type="hidden" class="ingredientsArray" name="ingredientsArray" value="">
+                            <button class="submit-button" type="submit">Compartilhar</button>
                         </fieldset>
-                        <button class="submit-button" type="submit">Compartilhar</button>
+                        
+                        <div class="form-buttons">
+                        <a class="my-recipes" href="/kitchen/<%= user._id %>/myRecipes">Minhas Receitas</a>
+                        <a class="recipes" href="">Receitas Salvas</a>
+                        </div> 
                     </form>
                 </section>
-                <aside class="asideMenu">
-                    <h2 class="title">Utensílios</h2>
-                        <p class="my-recipes"><a href="/kitchen/<%= user._id %>/myRecipes">Minhas Receitas</a></p>
-                        <p class="recipes"><a href="">Receitas Salvas</a></p>
-                </aside>
-                <script type="text/javascript" src="/assets/js/bundle.js"></script>
-                <a><span id="anchor-top"></span></a>
             </main>
+            <script type="text/javascript" src="/assets/js/bundle.js"></script>
         </body>
         </html>
