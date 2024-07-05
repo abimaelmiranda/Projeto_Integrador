@@ -36,12 +36,12 @@ export default class PostValidation {
         if (!ingredients.value.trim()) {
             error = true;
         }
+        
     
         ingredientsArray.value = JSON.stringify(ingredientsValue);
         
         if(!error) {
-            // el.submit();
-            console.log(ingredientsValue);
+            el.submit();
         }
     }
 }

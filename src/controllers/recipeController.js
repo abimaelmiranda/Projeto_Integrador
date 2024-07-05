@@ -33,8 +33,6 @@ class RecipeController {
       const post = await PostModel.findById(req.query.post);
       if (!post) throw new Error;
 
-      console.log(post.ingredientsArray[0]);
-
       const ingredients = JSON.parse(post.ingredientsArray[0]);
 
       res.render("recipe", { currentPage: "recipe", ingredients, post });
