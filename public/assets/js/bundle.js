@@ -133,14 +133,24 @@ var PostValidation = /*#__PURE__*/function () {
       var preparationMethod = el.querySelector('.preparationMethod');
       var ingredientsValue = ingredients.value.split('\n').map(function (ingredient) {
         return ingredient.trim();
+      }).filter(function (ingredient) {
+        return ingredient.length > 0;
       });
       var ingredientsArray = el.querySelector('.ingredientsArray');
       var image = el.querySelector('.imageFile').files[0];
       var csrf = document.querySelector('input[name=_csrf]').value;
-      console.log(image);
       var error = false;
+      if (ingredientsValue.length === 0) {
+        error = true;
+      }
+      if (!ingredients.value.trim()) {
+        error = true;
+      }
       ingredientsArray.value = JSON.stringify(ingredientsValue);
-      if (!error) el.submit();
+      if (!error) {
+        // el.submit();
+        console.log(ingredientsValue);
+      }
     }
   }]);
   return PostValidation;
