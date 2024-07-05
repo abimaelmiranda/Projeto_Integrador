@@ -2,7 +2,7 @@
     <%- include('./includes/header'); %>
 
         <body>
-            <h1 class="title"> Olá <%= user.name %></h1>
+            <h1 class="titlePage"> Olá <%= user.name %></h1>
             <main class='main-content-container'>
                 <section class="share-recepie-container">
                     <form action="/recipes/:id/recipe-submit/?_csrf=<%=csrfToken%>" class="recipe-form" method="post" enctype="multipart/form-data">
@@ -21,15 +21,12 @@
                     </form>
                 </section>
                 <aside class="asideMenu">
-                    <h2 class="title">Utensílios :)</h2>
-                    <ul>
-                        <li><a href="/kitchen/<%= user._id %>/myRecipes">Minhas Receitas</a></li>
-                        <li><a href="">Receitas Salvas</a></li>
-                    </ul>
+                    <h2 class="title">Utensílios</h2>
+                        <p class="my-recipes"><a href="/kitchen/<%= user._id %>/myRecipes">Minhas Receitas</a></p>
+                        <p class="recipes"><a href="">Receitas Salvas</a></p>
                 </aside>
                 <script type="text/javascript" src="/assets/js/bundle.js"></script>
                 <a><span id="anchor-top"></span></a>
             </main>
-          
         </body>
         </html>
