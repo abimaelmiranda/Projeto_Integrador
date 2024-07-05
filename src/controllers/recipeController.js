@@ -31,16 +31,15 @@ class RecipeController {
     try {
       if(!req.query.post) res.render("404", { currentPage: "404" });
       const post = await PostModel.findById(req.query.post);
-      if (!post) {
-        throw new Error(`${post.errors}`);
-      }
+      if (!post) throw new Error;
 
-      res.render("recipe", { currentPage: "recipe", post });
+      const ingredients = JSON.parse(post.ingredientsArray[0]);
+
+      res.render("recipe", { currentPage: "recipe", ingredients, post });
     } catch (error) {
       console.log(error);
     }
   }
-
   async save(req, res) {
     try {
       const save = new UserModel(req.body);
