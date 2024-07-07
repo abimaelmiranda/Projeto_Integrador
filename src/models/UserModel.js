@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import validator from 'validator';
-import bcrypt from 'bcryptjs';
+const mongoose = require("mongoose");
+const validator = require("validator");
+const bcrypt = require("bcryptjs");
 
 const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -145,6 +145,10 @@ class User {
       return this.errors.push("A senha deve ter entre 8 a 20 caracteres");
     }
 
+    if(this.body.password !== this.body.passwordConf) {
+      return this.errors.push("As senhas devem ser iguais");
+    }
+
     if (!this.passValidate(this.body.password)) {
       return this.errors.push("A senha deve conter letras maiúsculas, minúsculas, números e um caractere especial.");
     }
@@ -165,6 +169,7 @@ class User {
       username: this.body.username,
       email: this.body.email,
       password: this.body.password,
+      passwordConf: this.body.passwordConf,
     };
   }
 
@@ -179,9 +184,10 @@ class User {
 
   passValidate(pass) {
     return (
-      /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&(),.?":{}|<>])[a-zA-Z\d!@#$%^&(),.?":{}|<>]{8,20}$/g.test(pass)
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[a-zA-Z\d!@#$%^&*(),.?":{}|<>]{8,20}$/g.test(pass)
     );
   }
+  
 }
 
 export default User;
