@@ -8,9 +8,9 @@ const UserSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  upvotedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
-  downvotedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
-  savedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "posts" },
+  upvotedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "post" },
+  downvotedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "post" },
+  savedRecipes: { type: [mongoose.Schema.Types.ObjectId], ref: "post" },
 });
 
 export const UserModel = mongoose.model("users", UserSchema);
