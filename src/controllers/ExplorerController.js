@@ -22,9 +22,6 @@ class ExplorerController {
               .skip((page - 1) * 1)
               .limit(10);
       
-            if (posts.length === 0) {
-              return res.status(404).json({ errors: ["Nenhuma receita encontrada"] });
-            }
       
             res.render('explorer', {
               posts,

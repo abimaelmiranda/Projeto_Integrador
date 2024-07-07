@@ -140,10 +140,19 @@ var PostValidation = /*#__PURE__*/function () {
       var image = el.querySelector('.imageFile').files[0];
       var csrf = document.querySelector('input[name=_csrf]').value;
       var error = false;
+      if (!recipeTitle.value.trim()) {
+        error = true;
+      }
+      if (!shortDescription.value.trim()) {
+        error = true;
+      }
       if (ingredientsValue.length === 0) {
         error = true;
       }
-      if (!ingredients.value.trim()) {
+      if (!preparationMethod.value.trim()) {
+        error = true;
+      }
+      if (!image) {
         error = true;
       }
       ingredientsArray.value = JSON.stringify(ingredientsValue);
@@ -531,13 +540,13 @@ window.addEventListener("DOMContentLoaded", function () {
   var posts = document.querySelectorAll('.content-box');
   posts.forEach(function (post) {
     post.addEventListener('click', function (e) {
-      if (!e.target.closest('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .upRecipeIcon, .downRecipeIcon, .saveRecipeIcon')) {
+      if (!e.target.closest('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .upRecipeIcon, .downRecipeIcon, .saveRecipeIcon, .deleteRecipeButton')) {
         var postId = post.id;
         window.location.href = "/recipes?post=".concat(postId);
       }
     });
   });
-  var buttons = document.querySelectorAll('.upRecipeButton, .downRecipeButton, .saveRecipeButton');
+  var buttons = document.querySelectorAll('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .deleteRecipeButton');
   buttons.forEach(function (button) {
     button.addEventListener('click', function (e) {
       e.stopPropagation();
