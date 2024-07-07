@@ -15,8 +15,8 @@ export default class PostValidation {
         })
     }
 
-    validate(e){
-        const el = e.target
+    validate(e) {
+        const el = e.target;
         const recipeTitle = el.querySelector('.recipeTitle');
         const shortDescription = el.querySelector('.shortDescription');
         const ingredients = el.querySelector('.ingredients');
@@ -25,23 +25,38 @@ export default class PostValidation {
         const ingredientsArray = el.querySelector('.ingredientsArray');
         const image = el.querySelector('.imageFile').files[0];
         const csrf = document.querySelector('input[name=_csrf]').value;
-
-
+    
         let error = false;
+    
+
+        if (!recipeTitle.value.trim()) {
+            error = true;
+        }
+    
+
+        if (!shortDescription.value.trim()) {
+            error = true;
+        }
+    
 
         if (ingredientsValue.length === 0) {
             error = true;
         }
     
-        if (!ingredients.value.trim()) {
+
+        if (!preparationMethod.value.trim()) {
             error = true;
         }
-        
+
+        if (!image) {
+            error = true;
+        }
     
         ingredientsArray.value = JSON.stringify(ingredientsValue);
-        
-        if(!error) {
+    
+        if (!error) {
             el.submit();
         }
     }
+    
 }

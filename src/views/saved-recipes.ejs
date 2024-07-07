@@ -6,7 +6,7 @@
     <main id="main">
         <div class="main-content-container">
             <section class="main-section">
-                <h1 class="title">Minhas Receitas</h1>
+                <h1 class="title">Receitas Salvas</h1>
                 <% if (posts.length > 0) { %>
                 <form class="filter-container">
                     <label for="filter">Filtros</label>
@@ -18,7 +18,7 @@
                 <% }  %>
                 <div class="post-list-container">
                   <% if (posts.length === 0) { %>
-                    <h1 class="title">Você não possui nenhuma receita publicada</h1>
+                    <h1 class="title">Você não possui receitas salvas</h1>
                     <% }  %>
                     <% posts.forEach(post => { %>
                           <div class="post-content" id="<%= post._id %>">
@@ -29,13 +29,7 @@
                               <div class="post-img-container">
                                   <img src="/uploads/<%= post.recipeImage %>" alt="Imagem de <%= post.recipeTitle %>">
                               </div>
-                              <div class="post-content-footer">
-                                <form action="/recipes/delete" method="POST">
-                                  <input type="hidden" name="post-id" value="<%= post._id %>">
-                                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                  <button type="submit"><i class="bi bi-trash deleteRecipeButton" tabindex="-1"></i></button>
-                                </form>
-                              </div>
+                              <div class="post-content-footer"></div>
                           </div>
                     <% }); %>                    
                 </div>
@@ -44,7 +38,7 @@
                       <% if (totalPages > 1) { %>
                         <% if (pageNum > 1) { %>
                           <li class="page-item">
-                            <a class="page-link" href="/kitchen/<%= user._id %>/my-recipes?sort=<%= sort %>&page=<%= pageNum - 1 %>">Anterior</a>
+                            <a class="page-link" href="/kitchen/<%= user._id %>/saved-recipes?sort=<%= sort %>&page=<%= pageNum - 1 %>">Anterior</a>
                           </li>
                         <% } %>
                   
@@ -53,7 +47,7 @@
                   
                         <% if (startPage > 1) { %>
                           <li class="page-item">
-                            <a class="page-link" href="/kitchen/<%= user._id %>/my-recipes?sort=<%= sort %>&page=1">1</a>
+                            <a class="page-link" href="/kitchen/<%= user._id %>/saved-recipes?sort=<%= sort %>&page=1">1</a>
                           </li>
                           <% if (startPage > 2) { %>
                             <li class="page-item"><span class="page-link">...</span></li>
@@ -62,7 +56,7 @@
                   
                         <% for (let i = startPage; i <= endPage; i++) { %>
                           <li class="page-item">
-                            <a class="page-link" href="/kitchen/<%= user._id %>/my-recipes?sort=<%= sort %>&page=<%= i %>"><%= i %></a>
+                            <a class="page-link" href="/kitchen/<%= user._id %>/saved-recipes?sort=<%= sort %>&page=<%= i %>"><%= i %></a>
                           </li>
                         <% } %>
                   
@@ -71,13 +65,13 @@
                             <li class="page-item"><span class="page-link">...</span></li>
                           <% } %>
                           <li class="page-item">
-                            <a class="page-link" href="/kitchen/<%= user._id %>/my-recipes?sort=<%= sort %>&page=<%= totalPages %>"><%= totalPages %></a>
+                            <a class="page-link" href="/kitchen/<%= user._id %>/saved-recipes?sort=<%= sort %>&page=<%= totalPages %>"><%= totalPages %></a>
                           </li>
                         <% } %>
                   
                         <% if (pageNum < totalPages) { %>
                           <li class="page-item">
-                            <a class="page-link" href="/kitchen/<%= user._id %>/my-recipes?sort=<%= sort %>&page=<%= pageNum + 1 %>">Próximo</a>
+                            <a class="page-link" href="/kitchen/<%= user._id %>/saved-recipes?sort=<%= sort %>&page=<%= pageNum + 1 %>">Próximo</a>
                           </li>
                         <% } %>
                       <% } %>

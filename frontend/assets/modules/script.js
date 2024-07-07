@@ -63,14 +63,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const posts = document.querySelectorAll('.content-box');
   posts.forEach(post => {
       post.addEventListener('click', (e) => {
-          if (!e.target.closest('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .upRecipeIcon, .downRecipeIcon, .saveRecipeIcon')) {
+          if (!e.target.closest('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .upRecipeIcon, .downRecipeIcon, .saveRecipeIcon, .deleteRecipeButton')) {
               const postId = post.id;
               window.location.href = `/recipes?post=${postId}`;
           }
       });
   });
 
-  const buttons = document.querySelectorAll('.upRecipeButton, .downRecipeButton, .saveRecipeButton');
+  const buttons = document.querySelectorAll('.upRecipeButton, .downRecipeButton, .saveRecipeButton, .deleteRecipeButton');
   buttons.forEach(button => {
       button.addEventListener('click', (e) => {
           e.stopPropagation();

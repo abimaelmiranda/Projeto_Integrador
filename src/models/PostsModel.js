@@ -52,15 +52,15 @@ export class Post {
     }
   }
 
-  async searchMyRecipes() {
-    const author = await PostModel.find({ author: this.author }).sort({
-      createdIn: -1,
-    });
+  // static async searchMyRecipes() {
+  //   const author = await PostModel.find({ author: this.author }).sort({
+  //     createdIn: -1,
+  //   }).limit(10);
 
-    if (!author) return this.errors.push("Nenhuma receita encontrada");
+  //   if (!author) return this.errors.push("Nenhuma receita encontrada");
 
-    return author;
-  }
+  //   return author;
+  // }
 
   static async postSearch(query, page = 1, limit = 10) {
     try {

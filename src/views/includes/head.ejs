@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 
-    <% if(currentPage === 'home' || currentPage === 'myRecipes' ) { %>
+    <% if(currentPage === 'home' ) { %>
         <link rel="stylesheet" type="text/css" href="/assets/css/main-style.css" media="all">
         <link rel="stylesheet" type="text/css" href="/assets/css/media-queries/main-style-mq-768.css"
             media="screen and (max-width: 768px)">
@@ -41,7 +41,7 @@
     
     <% } %>
 
-    <% if(currentPage === 'explorer' || currentPage === 'search') { %>
+    <% if(currentPage === 'explorer' || currentPage === 'search' || currentPage === 'myRecipes' || currentPage === 'saved-recipes') { %>
 
         <link rel="stylesheet" href="/assets/css/explorer-style.css" media="all">
         <link rel="stylesheet" href="/assets/css/media-queries/explorer-style-mq-768.css" media="screen and (max-width: 768px)">
