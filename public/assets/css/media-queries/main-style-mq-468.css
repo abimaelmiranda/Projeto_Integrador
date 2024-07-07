@@ -1,29 +1,25 @@
-
-
 .main-section {
     display: grid;
     grid-template-rows: 1fr 1fr;
     width: 70%;
 }
 
-.main-section>h2 {
-    font-size: 20px;
+.main-section > h2 {
+    font-size: 2rem;
 }
 
-.main-section form{
+.main-section form {
     flex-flow: column;
-    row-gap: 10px;
+    row-gap: 1rem; 
 }
 
 .search-field {
-    text-indent: 1em;
-    height: 45px;
-    width: 200px;
+    text-indent: 1em; 
+    height: 4.5rem; 
 }
 
 .search-button {
-    width: 70px;
-
+    width: 7rem; 
 }
 
 .search-button:hover {
@@ -47,10 +43,10 @@
 
 .content-box-footer {
     align-self: end;
-    height: 80%;
+    height: 80%; 
 }
 
-#anchor-top{
+#anchor-top {
     position: fixed;
     top: 89%;
     left: 85%;

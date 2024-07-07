@@ -11,11 +11,11 @@ body{
 .main-content-container{
     display: flex;
     flex-flow:column;
-    margin-top: 10px;
+    margin-top: 1rem;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px auto;
-    row-gap: 6px;
+    margin: 1rem auto;
+    row-gap: 0.6rem;
     height: auto;
 }
 
@@ -24,11 +24,11 @@ body{
     width: 98%;
     height: 50%; 
     box-sizing: border-box;
-    padding: 15px;
+    padding: 1.5rem;
     background-color: white;
-    backdrop-filter: blur(2px);
-    border-radius: 5px;
-    border: 2px solid var(--cor4);
+    backdrop-filter: blur(0.2rem);
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--cor4);
 }
 
 .main-section a{
@@ -42,22 +42,22 @@ body{
 
 .title{
     color: var(--cor4);
-    font-size: 2.5em;
+    font-size: 4rem;
     justify-self: center;
     align-self: center;
-    margin: 15px
+    margin: 1.5rem;
 }
 
 .filter-container{
     align-self: center;
     justify-self: end;
-    margin: 15px 0px;
+    margin: 1.5rem 0rem;
 }
 
 .post-list-container{
     display: flex;
     box-sizing: border-box;
-    gap: 15px;
+    gap: 1.5rem;
     flex-flow: row wrap;
     width: 100%;
     height: 100%;
@@ -67,14 +67,14 @@ body{
 }
 
 select{
-    border: 1px solid var(--cor4);
-    padding: 3px;
-    border-radius: 5px;
+    border: 0.1rem solid var(--cor4);
+    padding: 0.3rem;
+    border-radius: 0.5rem;
 }
 
 label{
     align-self: center;
-    font-size: 1.3em;
+    font-size: 2rem;
 }
 
 select:focus{
@@ -82,17 +82,15 @@ select:focus{
 }
 
 .post-content{
-    /*display: grid;
-    grid-template-columns: 20% 70% 10%;*/
     display: grid;
     grid-template-rows: repeat(23, 1fr);
     grid-template-columns: 1fr;
     background-color: var(--cor0);
-    height: 500px;
-    max-width: 400px;
-    min-width: 300px;
-    border: 1 solid salmon;
-    border-radius: 10px;
+    height: 50rem;
+    max-width: 40rem;
+    min-width: 30rem;
+    border: 0.1rem solid salmon;
+    border-radius: 1rem;
     box-sizing: border-box;
 }
 
@@ -101,13 +99,13 @@ select:focus{
     grid-row: span 3;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    height: 120px;
+    height: 12rem;
     width: 100%;
-    padding: 10px;
+    padding: 1rem;
     background-color: var(--cor3);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.404);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    box-shadow: 0px 0.3rem 0.5rem rgba(0, 0, 0, 0.404);
     box-sizing: border-box;
     z-index: 3;
 }
@@ -115,12 +113,14 @@ select:focus{
 .post-title{
     grid-column-start: 1;
     grid-column-end: 12;
+    font-size: 2.3rem;
 }
 
 .post-author{
     grid-row: 2;
     grid-column-start: 1;
     grid-column-end: 5;
+    font-size: 1.5rem;
 }
 
 .post-description{
@@ -133,12 +133,11 @@ select:focus{
     grid-column-start: 1;
     grid-column-end: 12;
     line-height: 1em;
+    font-size: 1.5rem;
 }
 
 .post-img-container{
     grid-row: span 19;
-   /* grid-row-start: 4;
-    grid-row-end: 23;*/
     height: 100%;
     width: 100%;
 }
@@ -150,16 +149,15 @@ select:focus{
 }
 
 .post-content-footer{
-    /*grid-row-start: 23;
-    grid-row-end: 25;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 1rem;
     background-color: var(--cor3);
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    height: fit-content;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    /* height: fit-content; */
+    min-height: 5rem;
 }
 
 .pagination-container{
@@ -172,15 +170,15 @@ select:focus{
 .pagination-container ul{
     display: flex;
     list-style-type: none;
-    column-gap: 10px;
+    column-gap: 1rem;
     text-decoration: underline;
-    font-size: 20px;
+    font-size: 2rem;
     color: var(--cor4);
 }
 
 .pagination-container ul a{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 2rem;
     color: var(--cor4);
 }
 
@@ -192,18 +190,19 @@ select:focus{
     background-image: url(../images/seta-ancora.jpg);
     background-position: top center;
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     color: white;
-    border-radius: 50px;
+    border-radius: 5rem;
 }
 
 #anchor-top:hover{
     cursor: pointer;
-    transform: translate(-0%, -4%);
+    transform: translate(0, -0.4rem);
     transition: 100ms;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.589);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.589);
 }
+
 .post-link {
     text-decoration: none;
     color: inherit;
