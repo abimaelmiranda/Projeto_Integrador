@@ -1,13 +1,15 @@
 @import url('reset.css');
 
+*{
+    box-sizing: border-box;
+}
 
- html, body{
+html, body{
     background-image: url("../images/homepage-bg.webp");
     background-color: var(--cor1);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    /*width: 100vw;*/
 }
 
 .main{
@@ -20,27 +22,26 @@
     flex-flow:column;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px auto;
-    row-gap: 6px;
+    margin: 1rem auto;
+    row-gap: 0.6rem;
     width: 100%;
-
 }
 
 .main-section{
     display: grid;
-    row-gap: 5px;
-    width: 500px;
-    height: 150px;
-    padding: 20px;
+    row-gap: 0.5rem;
+    width: 50rem;
+    height: 15rem;
+    padding: 2rem;
     background-color: rgba(255, 255, 255, 0.87);
-    backdrop-filter: blur(2px);
-    border-radius: 5px;
+    backdrop-filter: blur(0.2rem);
+    border-radius: 0.5rem;
 }
 
 .main-section > h2{
     justify-self: center;
     align-self: center;
-    font-size: 1.5em;
+    font-size: 2rem;
     color: var(--cor4);
 }
 
@@ -54,19 +55,19 @@
 .search-button{
     background-color: var(--cor4);
     color: var(--cor0);
-    width: 70px;
-    height: 45px;
-    padding: 10px;
-    margin-left: 10px;
-    border: 0.5px solid rgba(0, 0, 0, 0.418);
-    border-radius: 5px;
+    width: 7rem;
+    height: 4.5rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    border: 0.05rem solid rgba(0, 0, 0, 0.418);
+    border-radius: 0.5rem;
 }
 
 .search-button:hover{
     cursor: pointer;
     background-color: #f58d55;
-    border: 1px solid --cor3;
-    transform: translate(-0.5%, -0.5%);
+    border: 0.1rem solid --cor3;
+    transform: translate(-0.05rem, -0.05rem);
     transition: 100ms;
 }
 
@@ -77,50 +78,54 @@
     align-self: center;
     text-indent: 1em;
     border: none;
-    border-radius: 5px;
-    padding: 5px;
-    width: 300px;
-    height: 45px;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 30rem;
+    height: 4.5rem;
 }
 
 .search-field:focus{
     outline: none;
-    box-shadow: 0px 0px 10px var(--cor4);
+    box-shadow: 0px 0px 1rem var(--cor4);
 }
 
 .content-box{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    width: 500px;
-    height: 200px;
-    padding: 20px;
+    width: 50rem;
+    height: 22rem;
+    padding: 1.8rem;
     background-color: rgba(255, 255, 255, 0.87);
-    backdrop-filter: blur(2px);
-    border-radius: 5px;
+    backdrop-filter: blur(0.2rem);
+    border-radius: 0.5rem;
 }
 
 .content-box > h2 {
     align-self: center;
+    font-size: 2.3rem;
 }
 
+.content-box p {
+    align-self: start;
+    font-size: 1.5rem;
+}
 
 .content-box-footer{
-    margin-top: 8px ;
     display: flex;
+    height: 6rem;
     justify-content: flex-end;
     align-items: center;
     background-color: var(--cor4);
     text-align: center;
-    border-radius: 5px;
-    box-sizing: border-box;
-    padding: 5px;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
 }
 
 label{
     position: relative;
     box-sizing: border-box;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
 }
 
 label:hover{
@@ -143,15 +148,14 @@ label span{
 
 label i{
     color: white;
-    font-size: 2.4em;
+    font-size: 3.2rem;
     transition: 0.5s;
 }
 
-
 .content-box:hover{
     cursor: pointer;
-    border: 1px solid lightgray;
-    transform: translate(-0.5%, -0.5%);
+    border: 0.1rem solid lightgray;
+    transform: translate(-0.05rem, -0.05rem);
     backdrop-filter: none;
     transition: 200ms;
 }
@@ -164,29 +168,29 @@ label i{
     background-image: url(../images/seta-ancora.jpg);
     background-position: top center;
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     color: white;
-    border-radius: 50px;
+    border-radius: 5rem;
 }
 
 #anchor-top:hover{
     cursor: pointer;
-    transform: translate(-0%, -4%);
+    transform: translate(0, -0.4rem);
     transition: 100ms;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.589);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.589);
 }
 
 .footer{
-
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--cor4);
     color: var(--cor0);
     height: 3vh;
-    padding: 5px;
-    box-shadow: 10px -px -1px black ;
+    padding: 0.5rem;
+    box-shadow: 1rem -px -0.1rem black;
 }
 
 .stickyFoot{
@@ -194,6 +198,7 @@ label i{
     bottom: 0;
     width: 100%;
 }
+
 main+.stickyFoot{
-    padding-bottom: 102px;
+    padding-bottom: 10.2rem;
 }

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
+import mongoose from 'mongoose';
+import validator from 'validator';
+import bcrypt from 'bcryptjs';
 
 const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -30,7 +30,6 @@ class User {
 
     if (this.errors.length > 0) return;
 
-    // const salt = bcrypt.genSaltSync();
     this.body.password = await bcrypt.hash(this.body.password, 8);
 
     this.user = await UserModel.create(this.body);
@@ -180,7 +179,7 @@ class User {
 
   passValidate(pass) {
     return (
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!*$?#])[\S]{8,20}$/g.test(pass)
+      /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[!@#$%^&(),.?":{}|<>])[a-zA-Z\d!@#$%^&(),.?":{}|<>]{8,20}$/g.test(pass)
     );
   }
 }

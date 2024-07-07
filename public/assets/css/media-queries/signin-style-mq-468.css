@@ -1,20 +1,20 @@
-.signin-screen{
-    row-gap: 20px;
-    height: 550px;
-    width: 300px;
-    padding: 20px;
+.signin-screen {
+    row-gap: 2rem; 
+    height: 55rem; 
+    width: 30rem; 
+    padding: 2rem; 
 }
 
-.signin-title{
-    font-size: 2em;   
+.signin-title {
+    font-size: 2rem;
 }
 
-.input-field{
+.input-field {
     align-self: center;
-    width: 250px;
-    height: 35px;
-    border-radius: 5px;
+    width: 25rem; 
+    height: 3.5rem; 
+    border-radius: 0.5rem; 
     border: none;
-    text-indent: 1em;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.616);
+    text-indent: 1em; 
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.616); 
 }

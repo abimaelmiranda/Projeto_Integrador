@@ -1,4 +1,4 @@
-const User = require('../models/UserModel');
+import User from '../models/UserModel'
 
 class SignInController {
 

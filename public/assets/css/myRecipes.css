@@ -8,7 +8,6 @@ body{
     display: grid;
     grid-template-rows: 7% 3% 90% ;
     width: 98%;
-    /* height: 100%; */
     box-sizing: border-box;
     padding: 15px;
     background-color: white;
@@ -49,8 +48,6 @@ body{
 
 .post-content-header{
     display: grid;
-    /*grid-row-start: 1;
-    grid-row-end: 4;*/
     grid-row: span 3;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
