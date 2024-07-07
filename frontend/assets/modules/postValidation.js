@@ -15,25 +15,48 @@ export default class PostValidation {
         })
     }
 
-    validate(e){
-        const el = e.target
+    validate(e) {
+        const el = e.target;
         const recipeTitle = el.querySelector('.recipeTitle');
         const shortDescription = el.querySelector('.shortDescription');
         const ingredients = el.querySelector('.ingredients');
         const preparationMethod = el.querySelector('.preparationMethod');
-        const ingredientsValue = ingredients.value.split('\n').map(ingredient => ingredient.trim());
+        const ingredientsValue = ingredients.value.split('\n').map(ingredient => ingredient.trim()).filter(ingredient => ingredient.length > 0);
         const ingredientsArray = el.querySelector('.ingredientsArray');
         const image = el.querySelector('.imageFile').files[0];
         const csrf = document.querySelector('input[name=_csrf]').value;
-
-        console.log(image);
-
+    
         let error = false;
+    
 
+        if (!recipeTitle.value.trim()) {
+            error = true;
+        }
+    
+
+        if (!shortDescription.value.trim()) {
+            error = true;
+        }
+    
+
+        if (ingredientsValue.length === 0) {
+            error = true;
+        }
+    
+
+        if (!preparationMethod.value.trim()) {
+            error = true;
+        }
+
+        if (!image) {
+            error = true;
+        }
+    
         ingredientsArray.value = JSON.stringify(ingredientsValue);
-        if(!error) el.submit();
-
-   
-
+    
+        if (!error) {
+            el.submit();
+        }
     }
+    
 }

@@ -21,9 +21,9 @@ class RecipeController {
         return res.redirect(`/kitchen/${req.session.user._id}`);
       });
   
-    } catch (e) {
+    } catch (error) {
       res.render("404", { currentPage: "404" });
-      console.log(e);
+      console.log(error);
     }  
   }
 
@@ -31,13 +31,28 @@ class RecipeController {
     try {
       if(!req.query.post) res.render("404", { currentPage: "404" });
       const post = await PostModel.findById(req.query.post);
-      if (!post) throw new Error(`${post.errors}`);
+      if (!post) throw new Error;
 
       const ingredients = JSON.parse(post.ingredientsArray[0]);
 
-      res.render("recipe", { currentPage: "recipe", post, ingredients });
+      res.render("recipe", { currentPage: "recipe", ingredients, post });
     } catch (error) {
       console.log(error);
+      res.render("404", { currentPage: "404" });
+    }
+  }
+
+  async delete(req, res) {
+    try {
+
+      const recipeId = req.body["post-id"];
+      if(!recipeId) throw new Error("Receita inexistente");
+      await PostModel.deleteOne({ _id: recipeId});
+      res.redirect(`/kitchen/${req.session.user._id}/my-recipes`);
+
+    } catch (error) {
+      console.log(error);
+      res.render("404", { currentPage: "404" });
     }
   }
 

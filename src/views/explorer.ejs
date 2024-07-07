@@ -1,83 +1,101 @@
 <%- include('./includes/head') %>
-<%- include('./includes/header') %>
+  <%- include('./includes/header') %>
 
-<body>
-    <span id="anchor"></span>
-    <main id="main">
+    <body>
+      <span id="anchor"></span>
+      <main id="main">
         <div class="main-content-container">
-            <section class="main-section">
-                <h1 class="title">Explorar</h1>
-                <form class="filter-container">
-                    <label for="filter">Filtros</label>
-                    <select name="sort" id="filter">
-                        <option value="az" <%= sort === 'az' ? 'selected' : '' %>>A-Z</option>
-                        <option value="recent" <%= sort === 'recent' ? 'selected' : '' %>>Mais Recentes</option>
-                    </select >
-                </form>
+          <section class="main-section">
+            <h1 class="title">Explorar</h1>
+            <% if (posts.length > 0) { %>
+              <form class="filter-container">
+                <label for="filter">Filtros</label>
+                <select name="sort" id="filter">
+                  <option value="az" <%=sort==='az' ? 'selected' : '' %>>A-Z</option>
+                  <option value="recent" <%=sort==='recent' ? 'selected' : '' %>>Mais Recentes</option>
+                </select>
+              </form>
+              <% } %>
                 <div class="post-list-container">
-                    <% posts.forEach(post => { %>
+                  <% if (posts.length === 0) { %>
+                    <h1 class="title">Não existem receitas publicadas</h1>
+                    <% } %>
+                      <div class="post-list-container">
+                        <% posts.forEach(post=> { %>
                           <div class="post-content" id="<%= post._id %>">
-                              <div class="post-content-header">
-                                  <h2 class="post-title"><%= post.recipeTitle %></h2>
-                                  <a class="post-author" href="#">por <%= post.author.username %></a>
-                                  <p><%= post.shortDescription %></p>
-                              </div>
-                              <div class="post-img-container">
-                                  <img src="/uploads/<%= post.recipeImage %>" alt="Imagem de <%= post.recipeTitle %>">
-                              </div>
-                              <div class="post-content-footer"></div>
+                            <div class="post-content-header">
+                              <h2 class="post-title">
+                                <%= post.recipeTitle %>
+                              </h2>
+                              <a class="post-author" href="#">por <%= post.author.username %></a>
+                              <p>
+                                <%= post.shortDescription %>
+                              </p>
+                            </div>
+                            <div class="post-img-container">
+                              <img src="/uploads/<%= post.recipeImage %>" alt="Imagem de <%= post.recipeTitle %>">
+                            </div>
+                            <div class="post-content-footer"></div>
                           </div>
-                    <% }); %>                    
-                </div>
-                <nav class="pagination-container">
-                    <ul class="pagination">
-                      <% if (totalPages > 1) { %>
-                        <% if (pageNum > 1) { %>
-                          <li class="page-item">
-                            <a class="page-link" href="/explorer?sort=<%= sort %>&page=<%= pageNum - 1 %>">Anterior</a>
-                          </li>
-                        <% } %>
-                  
-                        <% let startPage = Math.max(1, pageNum - 2); %>
-                        <% let endPage = Math.min(totalPages, pageNum + 2); %>
-                  
-                        <% if (startPage > 1) { %>
-                          <li class="page-item">
-                            <a class="page-link" href="/explorer?sort=<%= sort %>&page=1">1</a>
-                          </li>
-                          <% if (startPage > 2) { %>
-                            <li class="page-item"><span class="page-link">...</span></li>
-                          <% } %>
-                        <% } %>
-                  
-                        <% for (let i = startPage; i <= endPage; i++) { %>
-                          <li class="page-item">
-                            <a class="page-link" href="/explorer?sort=<%= sort %>&page=<%= i %>"><%= i %></a>
-                          </li>
-                        <% } %>
-                  
-                        <% if (endPage < totalPages) { %>
-                          <% if (endPage < totalPages - 1) { %>
-                            <li class="page-item"><span class="page-link">...</span></li>
-                          <% } %>
-                          <li class="page-item">
-                            <a class="page-link" href="/explorer?sort=<%= sort %>&page=<%= totalPages %>"><%= totalPages %></a>
-                          </li>
-                        <% } %>
-                  
-                        <% if (pageNum < totalPages) { %>
-                          <li class="page-item">
-                            <a class="page-link" href="/explorer?sort=<%= sort %>&page=<%= pageNum + 1 %>">Próximo</a>
-                          </li>
-                        <% } %>
-                      <% } %>
-                    </ul>
-                </nav>                  
-            </section>
+                          <% }); %>
+                      </div>
+                      <nav class="pagination-container">
+                        <ul class="pagination">
+                          <% if (totalPages> 1) { %>
+                            <% if (pageNum> 1) { %>
+                              <li class="page-item">
+                                <a class="page-link"
+                                  href="/explorer?sort=<%= sort %>&page=<%= pageNum - 1 %>">Anterior</a>
+                              </li>
+                              <% } %>
+
+                                <% let startPage=Math.max(1, pageNum - 2); %>
+                                  <% let endPage=Math.min(totalPages, pageNum + 2); %>
+
+                                    <% if (startPage> 1) { %>
+                                      <li class="page-item">
+                                        <a class="page-link" href="/explorer?sort=<%= sort %>&page=1">1</a>
+                                      </li>
+                                      <% if (startPage> 2) { %>
+                                        <li class="page-item"><span class="page-link">...</span></li>
+                                        <% } %>
+                                          <% } %>
+
+                                            <% for (let i=startPage; i <=endPage; i++) { %>
+                                              <li class="page-item">
+                                                <a class="page-link" href="/explorer?sort=<%= sort %>&page=<%= i %>">
+                                                  <%= i %>
+                                                </a>
+                                              </li>
+                                              <% } %>
+
+                                                <% if (endPage < totalPages) { %>
+                                                  <% if (endPage < totalPages - 1) { %>
+                                                    <li class="page-item"><span class="page-link">...</span></li>
+                                                    <% } %>
+                                                      <li class="page-item">
+                                                        <a class="page-link"
+                                                          href="/explorer?sort=<%= sort %>&page=<%= totalPages %>">
+                                                          <%= totalPages %>
+                                                        </a>
+                                                      </li>
+                                                      <% } %>
+
+                                                        <% if (pageNum < totalPages) { %>
+                                                          <li class="page-item">
+                                                            <a class="page-link"
+                                                              href="/explorer?sort=<%= sort %>&page=<%= pageNum + 1 %>">Próximo</a>
+                                                          </li>
+                                                          <% } %>
+                                                            <% } %>
+                        </ul>
+                      </nav>
+          </section>
         </div>
         <a><span id="anchor-top"></span></a>
-    </main>
-    <script type="text/javascript" src="assets/js/bundle.js"></script>
-    <script type="text/javascript" src="assets/js/modules/explorer.js"></script>
-</body>
-</html>
+      </main>
+      <script type="text/javascript" src="assets/js/bundle.js"></script>
+      <script type="text/javascript" src="assets/js/modules/explorer.js"></script>
+    </body>
+
+    </html>

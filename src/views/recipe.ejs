@@ -7,24 +7,29 @@
                     <h1 class="recipe-title">
                         <%= post.recipeTitle %>
                     </h1>
+                    <h2>Descrição:</h2>
                     <p>
+
                         <%= post.shortDescription %>
                     </p>
+
+                    <h2>Ingredientes:</h2>
                     <ul>
+                       
                         <%ingredients.forEach(ingredient => { %>
                             <li><%= ingredient %></li>
                             <% } ); %>
                     </ul>
+                    <h2>Modo de Preparo:</h2>
                     <p>
                         <%= post.preparationMethod %>
                     </p>
                 </div>
-                <div class="recipe-img-container">
-                    <div>
+                <div class="recipe-container-2">
+                    <div class="recipe-img-container">
                         <img src="/uploads/<%= post.recipeImage %>" class="recipe-img" alt="">
                     </div>
-                    <div>
-                        <span class="content-box-footer">
+                        <span class="content-box" id="<%= post._id %>">
                             <label for="up-<%= post._id %>" tabindex="-1">
                                 <input type="checkbox" id="up-<%= post._id %>" class="upRecipeButton" tabindex="-1">
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -47,9 +52,9 @@
                                 </span>
                             </label>
                         </span>
-                    </div>
                 </div>
             </main>
+            <script src="/assets/js/bundle.js"></script>
         </body>
 
         </html>
