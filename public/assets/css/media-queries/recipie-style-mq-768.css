@@ -1,0 +1,17 @@
+.main-recipe-container {
+    flex-direction: row;
+}
+
+.recipe-container,
+.recipe-container-2 {
+    width: 50%;
+}
+
+.recipe-img-container {
+    width: 40%;
+    height: 100%;
+}
+
+.content-box {
+    width: 40%;
+}
