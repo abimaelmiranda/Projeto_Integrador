@@ -1,9 +1,9 @@
-.main-section > h2 {
-    font-size: 1.3em; 
+.main-section {
+    width: 70%;
 }
 
-.main-section {
-    width: 85%;
+.main-section > h2 {
+    font-size: 4em; 
 }
 
 .search-button {
@@ -11,7 +11,7 @@
 }
 
 .search-field {
-    width: 23rem; 
+    width: 2rem; 
 }
 
 .content-box {

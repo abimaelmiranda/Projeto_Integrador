@@ -5,7 +5,7 @@
 }
 
 .main-section > h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .main-section form {
@@ -15,11 +15,12 @@
 
 .search-field {
     text-indent: 1em; 
-    height: 4.5rem; 
+    height: 4rem;
+    width: 20rem; 
 }
 
 .search-button {
-    width: 7rem; 
+    width: 6rem; 
 }
 
 .search-button:hover {
@@ -43,7 +44,7 @@
 
 .content-box-footer {
     align-self: end;
-    height: 80%; 
+    height: 85%; 
 }
 
 #anchor-top {
