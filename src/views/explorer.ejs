@@ -7,7 +7,7 @@
         <div class="main-content-container">
           <section class="main-section">
             <h1 class="title">Explorar</h1>
-            <% if (posts.length > 0) { %>
+            <% if (posts.length> 0) { %>
               <form class="filter-container">
                 <label for="filter">Filtros</label>
                 <select name="sort" id="filter">
@@ -16,8 +16,7 @@
                 </select>
               </form>
               <% } %>
-                <div class="post-list-container">
-                  <% if (posts.length === 0) { %>
+                  <% if (posts.length===0) { %>
                     <h1 class="title">Não existem receitas publicadas</h1>
                     <% } %>
                       <div class="post-list-container">

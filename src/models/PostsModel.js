@@ -52,15 +52,6 @@ export class Post {
     }
   }
 
-  // static async searchMyRecipes() {
-  //   const author = await PostModel.find({ author: this.author }).sort({
-  //     createdIn: -1,
-  //   }).limit(10);
-
-  //   if (!author) return this.errors.push("Nenhuma receita encontrada");
-
-  //   return author;
-  // }
 
   static async postSearch(query, page = 1, limit = 10) {
     try {
@@ -88,7 +79,7 @@ export class Post {
 
   static async homeSearch() {
     try {
-      const posts = await PostModel.find().sort({ createdIn: -1 });
+      const posts = await PostModel.find().sort({ createdIn: -1 }).limit(6);
       if (!posts) return this.errors.push("Nenhum post encontrado");
       return posts;
     } catch (e) {

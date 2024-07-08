@@ -3,7 +3,7 @@
 }
 
 .main-section > h2 {
-    font-size: 4em; 
+    font-size: 3em; 
 }
 
 .search-button {
@@ -11,7 +11,7 @@
 }
 
 .search-field {
-    width: 2rem; 
+    width: 50%; 
 }
 
 .content-box {
@@ -25,5 +25,5 @@
 
 .content-box-footer {
     align-self: end;
-    height: 4rem; 
+    height: 4.5rem; 
 }

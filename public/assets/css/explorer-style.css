@@ -134,6 +134,7 @@ select:focus{
     grid-column-end: 12;
     line-height: 1em;
     font-size: 1.5rem;
+    overflow: hidden;
 }
 
 .post-img-container{

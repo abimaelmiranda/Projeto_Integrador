@@ -10,7 +10,6 @@
 
 .main-section form {
     flex-flow: column;
-    row-gap: 1rem; 
 }
 
 .search-field {
@@ -44,7 +43,6 @@
 
 .content-box-footer {
     align-self: end;
-    height: 85%; 
 }
 
 #anchor-top {

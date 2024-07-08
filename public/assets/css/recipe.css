@@ -45,6 +45,8 @@ p, li {
   height: 100%;
 }
 
+
+
 .recipe-container {
   justify-content: center;
   width: 50%;
@@ -52,27 +54,17 @@ p, li {
 }
 
 .recipe-title{
-  font-size: 4rem;
+  font-size: 4.3rem;
+  color: var(--cor4);
 }
 
-.description {
+.description, .ingredients, .preparation-method {
+  font-size: 2.5rem;
+  color: var(--cor4);
+}
+
+.ingredients-list, .recipe-container p {
   font-size: 2rem;
-}
-
-.ingredients {
-  font-size: 2rem;
-}
-
-.preparation-method {
-  font-size: 2rem;
-}
-
-.ingredients-list {
-  font-size: 1.5rem;
-}
-
-.recipe-container p{
-  font-size: 1.5rem;
 }
 
 .recipe-container-2 {
@@ -127,6 +119,6 @@ label span {
 
 label i {
   color: white;
-  font-size: 2.4rem;
+  font-size: 3.5rem;
   transition: 0.5s;
 }
